@@ -6,7 +6,7 @@
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:46:14 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/23 16:09:03 by jszabo           ###   ########.fr       */
+/*   Updated: 2018/03/26 16:01:50 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,27 @@ int	main(int argc, char **argv)
 	t_list_num	*list;
 	t_list_num	*blist;
 	char		*line;
-	int			ret;
+	int			i;
 
 	line = NULL;
 	list = NULL;
 	blist = NULL;
+	i = 0;
 	if (argc > 1 && (!ps_check_input(argc, argv) || !make_list(argc, argv, &list)))
 		return (-1);
-	while ((ret = get_next_line(0, &line)) && line[0])
+	while (get_next_line(0, &line) && line[0])
 	{
 		if (!(ps_instruction(&list, &blist, line)))
 			return (-1);
+		i++;
 	}
-	if (!ret)
+	if (!i)
+	{
 		throw_error();
+		return (-1);
+	}
+	printf("%d\n", blist->num);
+	printf("%d\n", list->num);
 	return (0);
 }
 
