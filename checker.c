@@ -72,9 +72,5 @@ int	main(int argc, char **argv)
 		throw_error();
 		return (-1);
 	}
-	printf("%d\n", blist->num);
-	printf("%d\n", list->num);
 	return (0);
 }
-
-//every instruction to finish with new line?
