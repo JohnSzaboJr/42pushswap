@@ -6,7 +6,7 @@
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:46:14 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/27 12:48:40 by jszabo           ###   ########.fr       */
+/*   Updated: 2018/03/28 14:50:00 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,15 @@ int	main(int argc, char **argv)
 		throw_error();
 		return (-1);
 	}
-	printf("list A: %d\n", list->num);
-        printf("list B: %d\n", blist->num);
-	printf("list B: %d\n", blist->next->num);
+	while (list->next)
+	{
+		if (list->num > list->next->num)
+		{
+			ft_putstr("KO\n");
+			return (0);
+		}
+		list = list->next;
+	}
+	ft_putstr("OK\n");
 	return (0);
 }
