@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 
 	line = NULL;
 	list = NULL;
-	blist = NULL;
+       	blist = NULL;
 	i = 0;
 	if (argc > 1 && (!ps_check_input(argc, argv) || !make_list(argc, argv, &list)))
 		return (-1);
@@ -72,12 +72,8 @@ int	main(int argc, char **argv)
 		throw_error();
 		return (-1);
 	}
-	//
-	printf("%d\n", list->num);
-	printf("%d\n", list->next->num);
-//	printf("%d\n", list->next->next->num);
-//	printf("%d\n", list->next->next->next->num);
-	printf("blist: %d\n", blist->num);
-	printf("blist: %d\n", blist->next->num);
+	printf("list A: %d\n", list->num);
+        printf("list B: %d\n", blist->num);
+	printf("list B: %d\n", blist->next->num);
 	return (0);
 }

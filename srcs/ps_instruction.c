@@ -28,18 +28,15 @@ int	ps_ins_switch(t_list_num **list, int tmp)
 
 int	ps_ins_push(t_list_num **dstlist, t_list_num **srclist)
 {
-	t_list_num *second;
-	t_list_num *tmp;
+	t_list_num *node;
 
-	second = NULL;
-	tmp = *dstlist;
-	if (*srclist)
-	{
-		second = (*srclist)->next;
-		*dstlist = *srclist;
-		(*dstlist)->next = tmp;
-		*srclist = second;
-	}
+      	node = *srclist;
+       	if (*srclist)
+	  {
+	    *srclist = (*srclist)->next;
+	    node->next = *dstlist;
+	    *dstlist = node;
+	  }
 	return (1);
 }
 
