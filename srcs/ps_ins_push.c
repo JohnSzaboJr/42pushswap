@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_duplicates.c                                    :+:      :+:    :+:   */
+/*   ps_ins_push.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/29 10:53:26 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/29 10:57:37 by jszabo           ###   ########.fr       */
+/*   Created: 2018/03/23 14:31:23 by jszabo            #+#    #+#             */
+/*   Updated: 2018/03/23 14:35:38 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int	ps_duplicates(t_list_num * list, int num)
+void	ps_ins_push(t_list_num **dstlist, t_list_num **srclist)
 {
-	list = list->next;
-	while (list) {
-		if (list->num == num)
-			return (1);
-		list = list->next;
-	}
-	return (0);
+	t_list_num *node;
+
+      	node = *srclist;
+       	if (*srclist)
+	  {
+	    *srclist = (*srclist)->next;
+	    node->next = *dstlist;
+	    *dstlist = node;
+	  }
 }

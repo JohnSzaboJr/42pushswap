@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_duplicates.c                                    :+:      :+:    :+:   */
+/*   ps_check_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/29 10:53:26 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/29 10:57:37 by jszabo           ###   ########.fr       */
+/*   Created: 2018/03/23 14:31:23 by jszabo            #+#    #+#             */
+/*   Updated: 2018/03/23 14:35:38 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "../checker.h"
 #include "../libft/libft.h"
+#include <stdio.h>
 
-int	ps_duplicates(t_list_num * list, int num)
+int	ps_check_sort(t_list_num *list, int n)
 {
-	list = list->next;
-	while (list) {
-		if (list->num == num)
-			return (1);
-		list = list->next;
-	}
-	return (0);
+    int i;
+
+    i = 1;
+    while (list->next)
+    {
+        if (list->num > list->next->num)
+        {
+            ft_putstr("KO\n");
+            return (0);
+        }
+        list = list->next;
+        i++;
+    }
+    if (i != n)
+    {
+        ft_putstr("KO\n");
+        return (0);
+    }
+    ft_putstr("OK\n");
+    return (0);
 }

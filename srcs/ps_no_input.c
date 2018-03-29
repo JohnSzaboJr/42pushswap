@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_duplicates.c                                    :+:      :+:    :+:   */
+/*   ps_no_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/29 10:53:26 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/29 10:57:37 by jszabo           ###   ########.fr       */
+/*   Created: 2018/03/29 11:38:40 by jszabo            #+#    #+#             */
+/*   Updated: 2018/03/29 11:46:38 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int	ps_duplicates(t_list_num * list, int num)
+int	ps_no_input(int i)
 {
-	list = list->next;
-	while (list) {
-		if (list->num == num)
-			return (1);
-		list = list->next;
+	if (!i)
+	{
+		throw_error();
+		return (1);
 	}
 	return (0);
 }

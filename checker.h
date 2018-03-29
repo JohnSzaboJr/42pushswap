@@ -24,7 +24,18 @@ int							ps_check_input(int argc, char **argv);
 int							ps_not_int_size(char *str);
 int							ps_instruction(t_list_num **list,
 										   t_list_num **blist, char *line);
-int      ps_duplicates(t_list_num *list, int num);
-int      make_list(int argc, char **argv, t_list_num **list);
+int                         ps_duplicates(t_list_num *list, int num);
+int                         make_list(int argc, char **argv, t_list_num **list);
+int                         ps_no_input(int i);
+int                         ps_check_sort(t_list_num *list, int n);
+int                         ps_free(t_list_num **list);
+int                         ps_read_do(char **line, t_list_num **list, t_list_num **blist);
+void						ps_ins_switch(t_list_num **list);
+void						ps_ins_switch_both(t_list_num **alist, t_list_num **blist);
+void						ps_ins_push(t_list_num **dstlist, t_list_num **srclist);
+void     					ps_ins_rotate(t_list_num **list);
+void						ps_ins_rotate_both(t_list_num **alist, t_list_num **blist);
+void						ps_ins_rrotate(t_list_num **list);
+void						ps_ins_rrotate_both(t_list_num **alist, t_list_num **blist);
 
 #endif

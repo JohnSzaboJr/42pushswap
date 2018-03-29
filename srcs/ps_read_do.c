@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_duplicates.c                                    :+:      :+:    :+:   */
+/*   ps_read_do.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/29 10:53:26 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/29 10:57:37 by jszabo           ###   ########.fr       */
+/*   Created: 2018/03/23 14:31:23 by jszabo            #+#    #+#             */
+/*   Updated: 2018/03/23 14:35:38 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,19 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int	ps_duplicates(t_list_num * list, int num)
+int	ps_read_do(char **line, t_list_num **list, t_list_num **blist)
 {
-	list = list->next;
-	while (list) {
-		if (list->num == num)
-			return (1);
-		list = list->next;
-	}
-	return (0);
+    int i;
+    
+    i = 0;
+    while (get_next_line(0, line) && (*line)[0])
+    {
+        if (!(ps_instruction(list, blist, *line)))
+            return (0);
+        free(*line);
+        i++;
+    }
+    if (ps_no_input(i))
+        return (0);
+    return (1);
 }
