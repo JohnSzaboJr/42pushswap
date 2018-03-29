@@ -16,38 +16,6 @@
 //
 #include <stdio.h>
 
-static int	ps_duplicates(t_list_num *list, int num)
-{
-	list = list->next;
-	while (list)
-	{
-		if (list->num == num)
-			return (1);
-		list = list->next;
-	}
-	return (0);
-}
-
-static int	make_list(int argc, char **argv, t_list_num **list)
-{
-	t_list_num *tmp;
-
-	tmp = NULL;
-	argc--;
-	while (argc > 0)
-	{
-		if (!(tmp = (t_list_num *)malloc(sizeof(*tmp))))
-			return (throw_error());
-		tmp->num = ft_atoi(argv[argc]);
-		tmp->next = *list;
-		if (ps_duplicates(tmp, tmp->num))
-            return (throw_error());
-		*list = tmp;
-		argc--;
-	}
-	return (1);
-}
-
 int	main(int argc, char **argv)
 {
 	t_list_num	*list;
@@ -59,7 +27,8 @@ int	main(int argc, char **argv)
 	list = NULL;
        	blist = NULL;
 	i = 0;
-	if (argc > 1 && (!ps_check_input(argc, argv) || !make_list(argc, argv, &list)))
+	if (argc > 1 && (!ps_check_input(argc, argv) ||
+			!make_list(argc, argv, &list)))
 		return (-1);
 	while (get_next_line(0, &line) && line[0])
 	{
@@ -67,6 +36,8 @@ int	main(int argc, char **argv)
 			return (-1);
 		i++;
 	}
+	if (ps_no_input(i))
+	  	return (-1);
 	if (!i)
 	{
 		throw_error();
@@ -82,5 +53,6 @@ int	main(int argc, char **argv)
 		list = list->next;
 	}
 	ft_putstr("OK\n");
+	// free the list
 	return (0);
 }

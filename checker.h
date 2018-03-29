@@ -24,5 +24,7 @@ int							ps_check_input(int argc, char **argv);
 int							ps_not_int_size(char *str);
 int							ps_instruction(t_list_num **list,
 										   t_list_num **blist, char *line);
+int      ps_duplicates(t_list_num *list, int num);
+int      make_list(int argc, char **argv, t_list_num **list);
 
 #endif
