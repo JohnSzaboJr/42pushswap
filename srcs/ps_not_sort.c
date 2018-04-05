@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ps_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/19 12:46:14 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/29 13:32:49 by jszabo           ###   ########.fr       */
+/*   Created: 2018/03/23 14:31:23 by jszabo            #+#    #+#             */
+/*   Updated: 2018/03/23 14:35:38 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "checker.h"
-#include "./libft/libft.h"
+#include "../checker.h"
+#include "../libft/libft.h"
 
-int	main(int argc, char **argv)
+int	ps_not_sort(t_list_num *list)
 {
-	t_list_num	*list;
-	t_list_num	*blist;
-	char		*line;
+    int i;
 
-	line = NULL;
-	list = NULL;
-	blist = NULL;
-	if (argc > 1 && (!ps_check_input(argc, argv) ||
-			!make_list(argc, argv, &list) ||
-			!ps_read_do(&line, &list, &blist)))
-		return (-1);
-	ps_check_sort(list, argc - 1);
-	ps_free(&list);
-	return (0);
-	// segfaults on no input!
+    i = 0;
+    while (list && list->next)
+    {
+        if (list->num > list->next->num)
+            i++;
+        list = list->next;
+    }
+    return (i);
 }
