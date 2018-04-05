@@ -37,7 +37,8 @@ void     					ps_ins_rotate(t_list_num **list);
 void						ps_ins_rotate_both(t_list_num **alist, t_list_num **blist);
 void						ps_ins_rrotate(t_list_num **list);
 void						ps_ins_rrotate_both(t_list_num **alist, t_list_num **blist);
-int							ps_solve(t_list_num **ins, t_list_num **list, t_list_num **blist);
+int							ps_solve(t_list_num **ins, t_list_num **ins2, t_list_num **list,
+    t_list_num **list2, t_list_num **blist);
 int							ps_select_sort(t_list_num **ins, t_list_num **list, t_list_num **blist);
 int							ps_smallest(t_list_num *list);
 int							ps_add_list(t_list_num **list, int num);
@@ -47,5 +48,7 @@ int							ps_relative_sort(t_list_num **ins, t_list_num **list);
 void						ps_print_ins(t_list_num *ins);
 int							ps_convert_ins(t_list_num **ins);
 int							ps_reverse_list(t_list_num **ins);
+int							ps_bubble_sort(t_list_num **ins, t_list_num **list);
+int							ps_copy_list(t_list_num **list2, t_list_num *list);
 
 #endif

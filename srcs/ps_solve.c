@@ -16,8 +16,13 @@
 //
 #include <stdio.h>
 
-int	ps_solve(t_list_num **ins, t_list_num **list, t_list_num **blist)
+int	ps_solve(t_list_num **ins, t_list_num **ins2, t_list_num **list,
+    t_list_num **list2, t_list_num **blist)
 {
+    // t_list_num *list2;
+
+    // list2 = NULL;
+    // ps_copy_list(&list2, *list);
     // check if right order first? 3 1 2?
     // mindegyikhez rendelunk egyertelmuen egy szamot meret szerint
     // es aztan mar az egy kulonbseges szamokkal dolgozunk
@@ -42,25 +47,16 @@ int	ps_solve(t_list_num **ins, t_list_num **list, t_list_num **blist)
     // strategiak: 
     // - ha az elso ketto szomszedos, es rossz a sorrend: sa
     // - ha egy rotation az elejen vagy a vegen jo sorrende hoz?
-    // FIRST: code a selection sort version
-    	// code:
-	// 1 - sa
-	// 2 - sb
-	// 12 - ss
-	// 3 - pa
-	// 4 - pb
-	// 5 - ra
-	// 6 - rb
-	// 56 - rr
-	// 7 - rra
-	// 8 - rrb
-	// 78 - rrr
-    	// az osszevontakat eleg a vegen detektalni!
     ps_relative_sort(ins, list);
     ps_select_sort(ins, list, blist);
-    // inseket eloszor rendezni, aztan megforditani
+    ps_bubble_sort(ins2, list2);
+
     // ha pa es pb van egymas mellett -> mindkettot torolni!
     ps_convert_ins(ins);
     ps_print_ins(*ins);
+    //
+    printf("ins2:\n");
+    ps_convert_ins(ins2);
+    ps_print_ins(*ins2);
 	return (1);
 }

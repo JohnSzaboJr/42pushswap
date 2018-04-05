@@ -17,15 +17,20 @@
 int	main(int argc, char **argv)
 {
 	t_list_num	*list;
+	t_list_num	*list2;
 	t_list_num	*blist;
 	t_list_num	*ins;
+	t_list_num	*ins2;
 
 	list = NULL;
+	list2 = NULL;
 	blist = NULL;
     ins = NULL;
+	ins2 = NULL;
 	if (argc > 1 && (!ps_check_input(argc, argv) ||
 			!make_list(argc, argv, &list) ||
-			!ps_solve(&ins, &list, &blist)))
+			!make_list(argc, argv, &list2) ||
+			!ps_solve(&ins, &ins2, &list, &list2, &blist)))
 		return (-1);
 	//ps_check_sort(list, argc - 1);
 	//ps_free(&list);
