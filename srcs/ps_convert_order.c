@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_reverse_list.c                                  :+:      :+:    :+:   */
+/*   ps_convert_order.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,25 +13,45 @@
 #include <unistd.h>
 #include "../checker.h"
 #include "../libft/libft.h"
+//
+#include <stdio.h>
 
-int	ps_reverse_list(t_list_num **list)
+int	ps_convert_order(t_list_num **dstlist, t_list_num *srclist)
 {
-    t_list_num *next;
-    t_list_num *tmp;
-    t_list_num *node;
+    t_list_num  *node;
+    t_list_num  *list;
+    t_list_num  *tmp;
+    int         i;
 
-    next = NULL;
+    i = 1;
+    node = *dstlist;
+    list = NULL;
     tmp = NULL;
-    node = *list;
-    while (node && node->next)
-        node = node->next;
-    while (*list)
+    while (*dstlist)
     {
-        next = (*list)->next;
-        (*list)->next = tmp;
-        tmp = *list;
-        *list = next;
+        if (!(tmp = (t_list_num *)malloc(sizeof(*tmp))))
+	        return (throw_error());
+        tmp->num = 0;
+        tmp->next = list;
+        list = tmp;
+        *dstlist = (*dstlist)->next;
     }
-    *list = node;
+    *dstlist = node;
+    tmp = list;
+    while (srclist)
+    {
+        while ((*dstlist)->num != srclist->num)
+        {
+            *dstlist = (*dstlist)->next;
+            list = list->next;
+        }
+        list->num = i; 
+        *dstlist = node;
+        list = tmp;
+        srclist = srclist->next;
+        i++;
+    }
+    ps_free(dstlist);
+    *dstlist = list;
     return (1);
 }

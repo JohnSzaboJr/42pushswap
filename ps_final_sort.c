@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_reverse_list.c                                  :+:      :+:    :+:   */
+/*   ps_final_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,25 +13,36 @@
 #include <unistd.h>
 #include "../checker.h"
 #include "../libft/libft.h"
+//
+#include <stdio.h>
 
-int	ps_reverse_list(t_list_num **list)
+int	ps_final_sort(t_list_num **ins, t_list_num **list, t_list_num **blist)
 {
-    t_list_num *next;
-    t_list_num *tmp;
-    t_list_num *node;
+    int s;
+    int pos;
 
-    next = NULL;
-    tmp = NULL;
-    node = *list;
-    while (node && node->next)
-        node = node->next;
-    while (*list)
+    s = ps_size(*list);
+    pos = ps_smallest(*list);
+    //
+    *blist = NULL;
+    // get 1 to end
+    while (pos <= s / 2 && pos > -1)
     {
-        next = (*list)->next;
-        (*list)->next = tmp;
-        tmp = *list;
-        *list = next;
+        ps_ins_rotate(list);
+        ps_add_list(ins, 5);
+        pos--;
     }
-    *list = node;
+    while (pos > s / 2 && pos < s - 1)
+    {
+        ps_ins_rrotate(list);
+        ps_add_list(ins, 7);
+        pos++;
+    }
+    // pb
+    while (ps_proximity(*list, NULL))
+    {
+        ps_ins_push(blist, list);
+        ps_add_list(ins, 4);
+    }
     return (1);
 }

@@ -13,29 +13,22 @@
 #include <unistd.h>
 #include "../checker.h"
 #include "../libft/libft.h"
-//
-#include <stdio.h>
 
 int	ps_copy_list(t_list_num **list2, t_list_num *list)
 {
-    t_list_num *node;
     t_list_num *tmp;
 
     tmp = NULL;
-    if (list && !(*list2 = (t_list_num *)malloc(sizeof(*node))))
-        return (throw_error());
-    node = *list2;
+    *list2 = NULL;
     while (list)
     {
-        (*list2)->num = list->num;
-        if (list->next && !(tmp = (t_list_num *)malloc(sizeof(*tmp))))
-            return (throw_error());
-        (*list2)->next = tmp;
+        if (!(tmp = (t_list_num *)malloc(sizeof(*tmp))))
+	        return (throw_error());
+        tmp->num = list->num;
+        tmp->next = *list2;
+        *list2 = tmp;
         list = list->next;
     }
-    (*list2)->next = NULL;
-    *list2 = node;
-    printf("list2->num: %d\n", (*list2)->num);
-    printf("list2->next->num: %d\n", (*list2)->next->num);
+    ps_reverse_list(list2);
     return (1);
 }

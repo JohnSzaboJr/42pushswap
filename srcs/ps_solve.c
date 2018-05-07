@@ -16,14 +16,8 @@
 //
 #include <stdio.h>
 
-int	ps_solve(t_list_num **ins, t_list_num **ins2, t_list_num **list,
-    t_list_num **list2, t_list_num **blist)
+int	ps_solve(int argc, char **argv, t_list_num **blist)
 {
-    // t_list_num *list2;
-
-    // list2 = NULL;
-    // ps_copy_list(&list2, *list);
-    // check if right order first? 3 1 2?
     // mindegyikhez rendelunk egyertelmuen egy szamot meret szerint
     // es aztan mar az egy kulonbseges szamokkal dolgozunk
     // igazabol felul is irhatjuk oket, es utana ezekkel dolgozunk
@@ -47,16 +41,44 @@ int	ps_solve(t_list_num **ins, t_list_num **ins2, t_list_num **list,
     // strategiak: 
     // - ha az elso ketto szomszedos, es rossz a sorrend: sa
     // - ha egy rotation az elejen vagy a vegen jo sorrende hoz?
-    ps_relative_sort(ins, list);
-    ps_select_sort(ins, list, blist);
-    ps_bubble_sort(ins2, list2);
+    t_list_num *list;
+    t_list_num *list2;
+    t_list_num *ins;
+    t_list_num *ins2;
 
+    // ezeket a make_list-be?
+    list = NULL;
+    list2 = NULL;
+    ins = NULL;
+    ins2 = NULL;
+    make_list(argc, argv, &list);
+    make_list(argc, argv, &list2);
+    ps_relative_sort(&ins, &list2);
+    ps_select_sort(&ins, &list2, blist);
+    ps_bubble_sort(&ins2, &list);
+    if (ps_size(ins2) <  ps_size(ins))
+    {
+        ps_free(&ins);
+        ins = ins2;
+    }
+    else
+        ps_free(&ins2);
+    ps_free(&list);
+    make_list(argc, argv, &list);
+    ps_convert_order(&list, list2);
+    printf("original list:");
+    ps_print_list(list);
+    ps_quick_sort(&ins2, &list);
+
+    printf("quick sorted:");
+    ps_print_list(list);
+    ps_print_list(*blist);
+    ps_print_list(ins2);
+    printf("ins:\n");
     // ha pa es pb van egymas mellett -> mindkettot torolni!
-    ps_convert_ins(ins);
-    ps_print_ins(*ins);
-    //
-    printf("ins2:\n");
-    ps_convert_ins(ins2);
-    ps_print_ins(*ins2);
+    ps_convert_ins(&ins);
+   // ps_print_ins(ins);
+    printf("%d\n", ps_size(ins));
+    printf("%d\n", ps_size(ins2));
 	return (1);
 }

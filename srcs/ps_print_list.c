@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ps_print_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/19 12:46:14 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/29 13:32:49 by jszabo           ###   ########.fr       */
+/*   Created: 2018/03/23 14:31:23 by jszabo            #+#    #+#             */
+/*   Updated: 2018/03/23 14:35:38 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-	
+
 #include <unistd.h>
-#include "checker.h"
-#include "./libft/libft.h"
+#include "../checker.h"
+#include "../libft/libft.h"
+//
+#include <stdio.h>
 
-int	main(int argc, char **argv)
+void    ps_print_list(t_list_num *list)
 {
-	t_list_num	*blist;
-
-	blist = NULL;
-	if (argc > 1 && (!ps_check_input(argc, argv) ||
-			!ps_solve(argc, argv, &blist)))
-		return (-1);
-	//ps_check_sort(list, argc - 1);
-	//ps_free(&list);
-	return (0);
+    while (list)
+    {
+        printf("%d ", list->num);
+        list = list->next;
+    }
+    printf("\n");
 }
