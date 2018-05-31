@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_print_ins.c                                     :+:      :+:    :+:   */
+/*   ps_push_med.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,15 +14,30 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void	ps_print_ins(t_list_num *ins)
+int ps_push_med(t_list_num **src, t_list_num **trg, t_list_num **ins, int s)
 {
-    const char *instructions[] = {"sa\n", "sb\n", "pa\n", "pb\n", "ra\n",
-                                "rb\n", "rra\n", "rrb\n", "ss\n", "rr\n",
-                                "rrr\n", ""};
-								
-    while (ins)
-    {
-        ft_putstr(instructions[ins->num - 1]);
-        ins = ins->next;
-    }
+	int m;
+	int m2;
+
+	m = ps_median(*src, 0, ps_size(*src) - 1);
+	m2 = (m + ps_num(*src, ps_smallest(*src))) / 2;
+	while (!ps_elements_larger(*src, m))
+	{
+		if ((*src)->num < m)
+		{
+			ps_ins_push(trg, src);
+			ps_add_list(ins, 4);
+			if (((*trg)->num < m2 && !s) || ((*trg)->num >= m2 && s))
+			{
+				ps_ins_rotate(trg);
+				ps_add_list(ins, 6);
+			}
+		}
+		else
+		{
+			ps_ins_rotate(src);
+			ps_add_list(ins, 5);
+		}
+	}
+	return (m2);
 }

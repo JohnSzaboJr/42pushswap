@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_print_ins.c                                     :+:      :+:    :+:   */
+/*   pps_elements_larger.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,15 +14,13 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void	ps_print_ins(t_list_num *ins)
+int     ps_elements_larger(t_list_num *list, int n)
 {
-    const char *instructions[] = {"sa\n", "sb\n", "pa\n", "pb\n", "ra\n",
-                                "rb\n", "rra\n", "rrb\n", "ss\n", "rr\n",
-                                "rrr\n", ""};
-								
-    while (ins)
-    {
-        ft_putstr(instructions[ins->num - 1]);
-        ins = ins->next;
-    }
+	while (list)
+	{
+		if (list->num < n)
+			return (0);
+		list = list->next;
+	}
+	return (1);
 }

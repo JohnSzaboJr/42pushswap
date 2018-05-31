@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_print_ins.c                                     :+:      :+:    :+:   */
+/*   ps_get_last.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,15 +14,16 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void	ps_print_ins(t_list_num *ins)
+void	ps_get_last(t_list_num *list, int *last, int p)
 {
-    const char *instructions[] = {"sa\n", "sb\n", "pa\n", "pb\n", "ra\n",
-                                "rb\n", "rra\n", "rrb\n", "ss\n", "rr\n",
-                                "rrr\n", ""};
-								
-    while (ins)
-    {
-        ft_putstr(instructions[ins->num - 1]);
-        ins = ins->next;
-    }
+	int n;
+
+	n = p;
+	while (list && list->num != *last)
+	{
+		if (list->num > p)
+			n = list->num;
+		list = list->next;
+	}
+	*last = (*last > p) ? *last : n;
 }

@@ -55,30 +55,32 @@ int	ps_solve(int argc, char **argv, t_list_num **blist)
     make_list(argc, argv, &list2);
     ps_relative_sort(&ins, &list2);
     ps_select_sort(&ins, &list2, blist);
-    ps_bubble_sort(&ins2, &list);
-    if (ps_size(ins2) <  ps_size(ins))
-    {
-        ps_free(&ins);
-        ins = ins2;
-    }
-    else
-        ps_free(&ins2);
-    ps_free(&list);
-    make_list(argc, argv, &list);
+    // ps_bubble_sort(&ins2, &list);
+    // if (ps_size(ins2) <  ps_size(ins))
+    // {
+    //     ps_free(&ins);
+    //     ins = ins2;
+    // }
+    // else
+    //     ps_free(&ins2);
+    // ps_free(&list);
+    // make_list(argc, argv, &list);
     ps_convert_order(&list, list2);
-    printf("original list:");
-    ps_print_list(list);
-    ps_quick_sort(&ins2, &list);
+    // printf("original list:");
+    // ps_print_list(list);
+    // ps_quick_sort(&ins2, &list);
 
-    printf("quick sorted:");
-    ps_print_list(list);
-    ps_print_list(*blist);
-    ps_print_list(ins2);
-    printf("ins:\n");
+    ps_split_sort(&ins2, &list);
+
+    // printf("quick sorted:");
+    // ps_print_list(list);
+    // ps_print_list(ins2);
+    // printf("ins:\n");
     // ha pa es pb van egymas mellett -> mindkettot torolni!
-    ps_convert_ins(&ins);
-   // ps_print_ins(ins);
-    printf("%d\n", ps_size(ins));
-    printf("%d\n", ps_size(ins2));
+    // ps_convert_ins(&ins);
+    ps_reverse_list(&ins2);
+    ps_print_ins(ins2);
+    // printf("%d\n", ps_size(ins));
+    // printf("%d\n", ps_size(ins2));
 	return (1);
 }

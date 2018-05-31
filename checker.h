@@ -57,6 +57,24 @@ void						ps_get_start(t_list_num **list, int start);
 int							ps_count_error(t_list_num *list, int num, int end_num);
 int							ps_find_pivot(t_list_num *list, int start, int end, int *p);
 int							ps_left(t_list_num *list, int p, int start);
+int							ps_median(t_list_num *list, int start, int end);
+void						ps_get_first(t_list_num *list, int start, int *first, int p);
+void						ps_get_last(t_list_num *list, int *last, int p);
+int							ps_position(t_list_num *list, int n);
+int							ps_split_sort(t_list_num **ins, t_list_num **list);
+void						ps_rrotate_n(t_list_num **list, int	n, t_list_num **ins);
+void						ps_rotate_n(t_list_num **list, int	n, t_list_num **ins);
+void						ps_rotate_into_place(t_list_num **list, int end, int last, t_list_num **ins);
+int							ps_largest_num(t_list_num *list);
+int							ps_elements_larger(t_list_num *list, int n);
+int							ps_elements_smaller(t_list_num *list, int n);
+int							ps_push_med(t_list_num **src, t_list_num **trg, t_list_num **ins, int s);
+int							ps_push_med2(t_list_num **src, t_list_num **trg, t_list_num **ins);
+void						ps_rrb(t_list_num **blist, t_list_num **ins);
+void						ps_rb(t_list_num **blist, t_list_num **ins);
+void						ps_pb(t_list_num **blist, t_list_num **list, t_list_num **ins);
+void						ps_pa(t_list_num **list, t_list_num **blist, t_list_num **ins);
+void						ps_pmb(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_print_list(t_list_num *list);
 
 #endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_print_ins.c                                     :+:      :+:    :+:   */
+/*   ps_position.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,15 +14,15 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void	ps_print_ins(t_list_num *ins)
+int	ps_position(t_list_num *list, int n)
 {
-    const char *instructions[] = {"sa\n", "sb\n", "pa\n", "pb\n", "ra\n",
-                                "rb\n", "rra\n", "rrb\n", "ss\n", "rr\n",
-                                "rrr\n", ""};
-								
-    while (ins)
-    {
-        ft_putstr(instructions[ins->num - 1]);
-        ins = ins->next;
-    }
+	int i;
+
+	i = 0;
+	while (list && list->num != n)
+	{
+		list = list->next;
+		i++;
+	}
+	return (i);
 }
