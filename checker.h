@@ -61,7 +61,7 @@ int							ps_median(t_list_num *list, int start, int end);
 void						ps_get_first(t_list_num *list, int start, int *first, int p);
 void						ps_get_last(t_list_num *list, int *last, int p);
 int							ps_position(t_list_num *list, int n);
-int							ps_split_sort(t_list_num **ins, t_list_num **list);
+void						ps_split_sort(t_list_num **ins, t_list_num **list);
 void						ps_rrotate_n(t_list_num **list, int	n, t_list_num **ins);
 void						ps_rotate_n(t_list_num **list, int	n, t_list_num **ins);
 void						ps_rotate_into_place(t_list_num **list, int end, int last, t_list_num **ins);
@@ -75,6 +75,7 @@ void						ps_rb(t_list_num **blist, t_list_num **ins);
 void						ps_pb(t_list_num **blist, t_list_num **list, t_list_num **ins);
 void						ps_pa(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_pmb(t_list_num **list, t_list_num **blist, t_list_num **ins);
+void						ps_pmb2(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_print_list(t_list_num *list);
 
 #endif

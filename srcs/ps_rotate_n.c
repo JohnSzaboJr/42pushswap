@@ -19,7 +19,7 @@ void	ps_rotate_n(t_list_num **list, int	n, t_list_num **ins)
 	while (n)
 	{
 		ps_ins_rotate(list);
-		ps_add_list(ins, 5);
+		ps_add_list(ins, 6);
 		n--;
 	}
 }

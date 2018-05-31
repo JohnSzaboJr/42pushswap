@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_rrotate_n.c                                     :+:      :+:    :+:   */
+/*   ps_pmb2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,12 +14,18 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void	ps_rrotate_n(t_list_num **list, int	n, t_list_num **ins)
-{
-	while (n)
-	{
-		ps_ins_rrotate(list);
-		ps_add_list(ins, 8);
-		n--;
-	}
+void    ps_pmb2(t_list_num **list, t_list_num **blist, t_list_num **ins)
+{    
+    int m;
+
+    while (ps_size(*list) >= 10)
+    {
+        m = ps_push_med2(list, blist, ins);
+        while (ps_num(*blist, ps_size(*blist) - 1) < m)
+            ps_rb(blist, ins);
+    }
+    while (*list)
+        ps_pb(blist, list, ins);
+    while ((*blist)->num < m)
+        ps_rb(blist, ins);
 }

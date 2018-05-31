@@ -81,6 +81,6 @@ int	ps_solve(int argc, char **argv, t_list_num **blist)
     ps_reverse_list(&ins2);
     ps_print_ins(ins2);
     // printf("%d\n", ps_size(ins));
-    // printf("%d\n", ps_size(ins2));
+    printf("%d\n", ps_size(ins2));
 	return (1);
 }

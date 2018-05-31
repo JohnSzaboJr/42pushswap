@@ -16,7 +16,7 @@
 //
 #include <stdio.h>
 
-int     ps_split_sort(t_list_num **ins, t_list_num **list)
+void     ps_split_sort(t_list_num **ins, t_list_num **list)
 {
     int m;
     int m2;
@@ -26,6 +26,8 @@ int     ps_split_sort(t_list_num **ins, t_list_num **list)
 	blist = NULL;
     ps_push_med(list, &blist, ins, 0);
     ps_pmb(list, &blist, ins);
+    if (ps_size(blist) > 200)
+    {
     m2 = (ps_median(blist, 0, ps_size(blist) - 1) + ps_num(blist, ps_smallest(blist))) / 2;
     m3 = (m2 + ps_num(blist, ps_smallest(blist))) / 2;
     while (ps_num(blist, ps_size(blist) - 1) < m2)
@@ -36,20 +38,11 @@ int     ps_split_sort(t_list_num **ins, t_list_num **list)
     }
     while (blist->num < m2)
         ps_rb(&blist, ins);
-    while (ps_size(*list) >= 10)
-    {
-        m = ps_push_med2(list, &blist, ins);
-        while (ps_num(blist, ps_size(blist) - 1) < m)
-            ps_rb(&blist, ins);
+    ps_pmb2(list, &blist, ins);
     }
-    while (*list)
-        ps_pb(&blist, list, ins);
-     while (blist->num < m2)
-        ps_rb(&blist, ins);
     while (blist)
     {
         ps_rotate_into_place(&blist, 0, ps_largest_num(blist), ins);
         ps_pa(list, &blist, ins);
     }  
-    return (1);
 }
