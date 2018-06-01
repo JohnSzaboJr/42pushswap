@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_pmb.c                                           :+:      :+:    :+:   */
+/*   ps_final_ssort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,24 +14,11 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void    ps_pmb(t_list_num **list, t_list_num **blist, t_list_num **ins)
-{    
-    int m;
-    int i;
-
-    i = 0;
-    while (ps_size(*list) >= 10)
+void     ps_final_ssort(t_list_num **list, t_list_num **blist, t_list_num **ins)
+{
+    while (*blist)
     {
-        m = ps_push_med(list, blist, ins, 1);
-        while (ps_num(*blist, ps_size(*blist) - 1) >= m)
-        {
-            ps_rrb(blist, ins);
-            i++;
-        }
-    }
-    if (i > 10)
-        resplit();
-    // write function to split stack again.
-    while (*list)
-        ps_pb(blist, list, ins);
+        ps_rotate_into_place(blist, 0, ps_largest_num(*blist), ins);
+        ps_pa(list, blist, ins);
+    }  
 }

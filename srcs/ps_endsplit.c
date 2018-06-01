@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_pmb.c                                           :+:      :+:    :+:   */
+/*   ps_endsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,24 +14,20 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void    ps_pmb(t_list_num **list, t_list_num **blist, t_list_num **ins)
-{    
-    int m;
-    int i;
+void     ps_endsplit(t_list_num **list, t_list_num **blist, t_list_num **ins)
+{
+	int m;
+	int m2;
 
-    i = 0;
-    while (ps_size(*list) >= 10)
-    {
-        m = ps_push_med(list, blist, ins, 1);
-        while (ps_num(*blist, ps_size(*blist) - 1) >= m)
-        {
-            ps_rrb(blist, ins);
-            i++;
-        }
-    }
-    if (i > 10)
-        resplit();
-    // write function to split stack again.
-    while (*list)
-        ps_pb(blist, list, ins);
+	m = (ps_median(*blist, 0, ps_size(*blist) - 1)
+		+ ps_num(*blist, ps_smallest(*blist))) / 2;
+	m2 = (m + ps_num(*blist, ps_smallest(*blist))) / 2;
+	while (ps_num(*blist, ps_size(*blist) - 1) < m)
+	{
+		ps_rrb(blist, ins);
+		if ((*blist)->num < m2)
+			ps_pa(list, blist, ins);
+	}
+	while ((*blist)->num < m)
+		ps_rb(blist, ins);
 }

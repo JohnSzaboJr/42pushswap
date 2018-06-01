@@ -13,36 +13,18 @@
 #include <unistd.h>
 #include "../checker.h"
 #include "../libft/libft.h"
-//
-#include <stdio.h>
 
 void     ps_split_sort(t_list_num **ins, t_list_num **list)
 {
-    int m;
-    int m2;
-    int m3;
-    t_list_num *blist;
+	t_list_num *blist;
 
 	blist = NULL;
-    ps_push_med(list, &blist, ins, 0);
-    ps_pmb(list, &blist, ins);
-    if (ps_size(blist) > 200)
-    {
-    m2 = (ps_median(blist, 0, ps_size(blist) - 1) + ps_num(blist, ps_smallest(blist))) / 2;
-    m3 = (m2 + ps_num(blist, ps_smallest(blist))) / 2;
-    while (ps_num(blist, ps_size(blist) - 1) < m2)
-    {
-        ps_rrb(&blist, ins);
-        if (blist->num < m3)
-            ps_pa(list, &blist, ins);
-    }
-    while (blist->num < m2)
-        ps_rb(&blist, ins);
-    ps_pmb2(list, &blist, ins);
-    }
-    while (blist)
-    {
-        ps_rotate_into_place(&blist, 0, ps_largest_num(blist), ins);
-        ps_pa(list, &blist, ins);
-    }  
+	ps_push_med(list, &blist, ins, 0);
+	ps_pmb(list, &blist, ins);
+	if (ps_size(blist) > 200)
+	{
+		ps_endsplit(list, &blist, ins);
+		ps_pmb2(list, &blist, ins);
+	}
+	ps_final_ssort(list, &blist, ins);
 }

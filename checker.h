@@ -76,6 +76,8 @@ void						ps_pb(t_list_num **blist, t_list_num **list, t_list_num **ins);
 void						ps_pa(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_pmb(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_pmb2(t_list_num **list, t_list_num **blist, t_list_num **ins);
+void						ps_final_ssort(t_list_num **list, t_list_num **blist, t_list_num **ins);
+void						ps_endsplit(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_print_list(t_list_num *list);
 
 #endif
