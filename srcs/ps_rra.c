@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_split_sort.c                                    :+:      :+:    :+:   */
+/*   ps_rra.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,19 +14,8 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void     ps_split_sort(t_list_num **ins, t_list_num **list)
+void    ps_rra(t_list_num **list, t_list_num **ins)
 {
-	t_list_num *blist;
-
-	blist = NULL;
-	ps_push_med(list, &blist, ins, 0);
-	if (ps_size(blist) > 100)
-		ps_transsplit(list, &blist, ins);
-	ps_pmb(list, &blist, ins);
-	if (ps_size(blist) > 200)
-	{
-		ps_endsplit(list, &blist, ins);
-		ps_pmb2(list, &blist, ins);
-	}
-	ps_final_ssort(list, &blist, ins);
+	ps_ins_rrotate(list);
+	ps_add_list(ins, 7);
 }

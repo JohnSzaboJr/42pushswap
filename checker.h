@@ -71,13 +71,16 @@ int							ps_elements_smaller(t_list_num *list, int n);
 int							ps_push_med(t_list_num **src, t_list_num **trg, t_list_num **ins, int s);
 int							ps_push_med2(t_list_num **src, t_list_num **trg, t_list_num **ins);
 void						ps_rrb(t_list_num **blist, t_list_num **ins);
+void						ps_rra(t_list_num **list, t_list_num **ins);
 void						ps_rb(t_list_num **blist, t_list_num **ins);
+void						ps_ra(t_list_num **list, t_list_num **ins);
 void						ps_pb(t_list_num **blist, t_list_num **list, t_list_num **ins);
 void						ps_pa(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_pmb(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_pmb2(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_final_ssort(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_endsplit(t_list_num **list, t_list_num **blist, t_list_num **ins);
+void						ps_transsplit(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_print_list(t_list_num *list);
 
 #endif
