@@ -39,6 +39,18 @@ int	ps_convert_ins(t_list_num **ins)
             tmp->num = 11;
             tmp->next->num = 12;
             }
+        else if ((tmp->num == 3 && tmp->next->num == 4) ||
+            (tmp->num == 4 && tmp->next->num == 3) ||
+            (tmp->num == 5 && tmp->next->num == 7) ||
+            (tmp->num == 7 && tmp->next->num == 5) ||
+            (tmp->num == 6 && tmp->next->num == 8) ||
+            (tmp->num == 8 && tmp->next->num == 6) ||
+            (tmp->num == 10 && tmp->next->num == 11) ||
+            (tmp->num == 11 && tmp->next->num == 10))
+            {
+            tmp->num = 12;
+            tmp->next->num = 12;
+            }
     tmp = tmp->next;
     }
     ps_reverse_list(ins);

@@ -81,6 +81,11 @@ void						ps_pmb2(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_final_ssort(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_endsplit(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_transsplit(t_list_num **list, t_list_num **blist, t_list_num **ins);
+void						ps_transback(t_list_num **list, t_list_num **blist, t_list_num **ins);
+int							ps_sortinb(t_list_num **list, t_list_num **blist, t_list_num **ins, int l);
+void						ps_resplit(t_list_num **list, t_list_num **blist, t_list_num **ins, int m);
+void						ps_resplit2(t_list_num **list, t_list_num **blist, t_list_num **ins, int m);
+int							ps_null(t_list_num *list);
 void						ps_print_list(t_list_num *list);
 
 #endif

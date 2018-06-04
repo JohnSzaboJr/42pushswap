@@ -28,19 +28,10 @@ void    ps_pmb(t_list_num **list, t_list_num **blist, t_list_num **ins)
             ps_rrb(blist, ins);
             i++;
         }
+        if (i > 20)
+            ps_resplit(list, blist, ins, m);
+        i = 0;
     }
-    // if (i > 20)
-    //     resplit();
-    
-    // for the first transfer: check if it is larger than 40, and if yes, transfer back half from each end,
-    // and splitting them, transfer them back.
-
-    // get m2 between m and largest
-    // get m3 between m2 and largest
-    // transfer the larger ones to a
-    // transfer back the ones larger of m3 to back, smaller to front (all larger than m2)
-    // rotate the ones larger than m3 to front.
-
     while (*list)
         ps_pb(blist, list, ins);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_transsplit.c                                    :+:      :+:    :+:   */
+/*   ps_null.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,23 +14,16 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void     ps_transsplit(t_list_num **list, t_list_num **blist, t_list_num **ins)
+int ps_null(t_list_num *list)
 {
-    int m2;
-    int l;
-    int s;
+	int i;
 
-    l = ps_num(*list, ps_smallest(*list));
-    s = ps_size(*list) + 10;
-    ps_transback(list, blist, ins);
-    while (ps_size(*list) >= s)
-    {
-        m2 = ps_sortinb(list, blist, ins, l);
-        while (ps_num(*blist, ps_size(*blist) - 1) >= m2)
-            ps_rrb(blist, ins);
-        while (ps_num(*list, ps_size(*list) - 1) < l)
-            ps_rra(list, ins);
-    }
-    while (ps_size(*list) > s - 10)
-        ps_pb(blist, list, ins);
+	i = 0;
+	while (list)
+	{
+		if (list->num == 12)
+			i++;
+		list = list->next;
+	}
+	return (i);
 }

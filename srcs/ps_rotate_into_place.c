@@ -20,6 +20,8 @@ void	ps_rotate_into_place
 	int			pos;
 
 	pos = ps_position(*list, last);
+	if (pos == ps_size(*list))
+		return ;
 	if (pos < end && (end - pos) < (ps_size(*list) / 2))
 		ps_rrotate_n(list, end - pos, ins);
 	else if (pos < end && (end - pos) >= (ps_size(*list) / 2))
