@@ -63,8 +63,11 @@ void						ps_get_last(t_list_num *list, int *last, int p);
 int							ps_position(t_list_num *list, int n);
 void						ps_split_sort(t_list_num **ins, t_list_num **list);
 void						ps_rrotate_n(t_list_num **list, int	n, t_list_num **ins);
+void						ps_rrotate_n2(t_list_num **list, int	n, t_list_num **ins);
 void						ps_rotate_n(t_list_num **list, int	n, t_list_num **ins);
+void						ps_rotate_n2(t_list_num **list, int	n, t_list_num **ins);
 void						ps_rotate_into_place(t_list_num **list, int end, int last, t_list_num **ins);
+void						ps_rotate_into_place2(t_list_num **list, int end, int last, t_list_num **ins);
 int							ps_largest_num(t_list_num *list);
 int							ps_elements_larger(t_list_num *list, int n);
 int							ps_elements_smaller(t_list_num *list, int n);
@@ -76,9 +79,10 @@ void						ps_rb(t_list_num **blist, t_list_num **ins);
 void						ps_ra(t_list_num **list, t_list_num **ins);
 void						ps_pb(t_list_num **blist, t_list_num **list, t_list_num **ins);
 void						ps_pa(t_list_num **list, t_list_num **blist, t_list_num **ins);
+void						ps_sa(t_list_num **list, t_list_num **ins);
 void						ps_pmb(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_pmb2(t_list_num **list, t_list_num **blist, t_list_num **ins);
-void						ps_final_ssort(t_list_num **list, t_list_num **blist, t_list_num **ins);
+void						ps_fsort(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_endsplit(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_transsplit(t_list_num **list, t_list_num **blist, t_list_num **ins);
 void						ps_transback(t_list_num **list, t_list_num **blist, t_list_num **ins);
@@ -86,6 +90,8 @@ int							ps_sortinb(t_list_num **list, t_list_num **blist, t_list_num **ins, in
 void						ps_resplit(t_list_num **list, t_list_num **blist, t_list_num **ins, int m);
 void						ps_resplit2(t_list_num **list, t_list_num **blist, t_list_num **ins, int m);
 int							ps_null(t_list_num *list);
+int							ps_distance1(t_list_num *list, t_list_num *blist);
+int							ps_distance2(t_list_num *list, t_list_num *blist);
 void						ps_print_list(t_list_num *list);
 
 #endif

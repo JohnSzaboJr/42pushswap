@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_split_sort.c                                    :+:      :+:    :+:   */
+/*   ps_distance2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/23 14:31:23 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/23 14:35:38 by jszabo           ###   ########.fr       */
+/*   Created: 2018/06/04 14:10:29 by jszabo            #+#    #+#             */
+/*   Updated: 2018/06/04 14:10:30 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void     ps_split_sort(t_list_num **ins, t_list_num **list)
+int      ps_distance2(t_list_num *list, t_list_num *blist)
 {
-	t_list_num *blist;
+	int p1;
+	int p2;
+	int sizeb;
+	int sizea;
+	int b;
 
-	blist = NULL;
-	ps_push_med(list, &blist, ins, 0);
-	if (ps_size(blist) > 100)
-		ps_transsplit(list, &blist, ins);
-	ps_pmb(list, &blist, ins);
-	if (ps_size(blist) > 200)
-	{
-		ps_endsplit(list, &blist, ins);
-		ps_pmb2(list, &blist, ins);
-	}
-	ps_fsort(list, &blist, ins);
+	p1 = ps_smallest(blist);
+	p2 = ps_position(list, ps_num(blist, p1) - 1);
+	sizeb = ps_size(blist);
+	sizea = ps_size(list);
+	b = p1 < sizeb / 2 ? p1 : sizeb - p1;
+	b = p2 < sizea / 2 ? p2 + b : sizea - p2 + b;
+	return (b);
 }

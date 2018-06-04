@@ -23,21 +23,16 @@ int ps_push_med(t_list_num **src, t_list_num **trg, t_list_num **ins, int s)
 	m2 = (m + ps_num(*src, ps_smallest(*src))) / 2;
 	while (!ps_elements_larger(*src, m))
 	{
+		if ((*src) && (*src)->next && (*src)->num - 1 == (*src)->next->num)
+			ps_sa(src, ins);
 		if ((*src)->num < m)
 		{
-			ps_ins_push(trg, src);
-			ps_add_list(ins, 4);
+			ps_pb(trg, src, ins);
 			if (((*trg)->num < m2 && !s) || ((*trg)->num >= m2 && s))
-			{
-				ps_ins_rotate(trg);
-				ps_add_list(ins, 6);
-			}
+				ps_rb(trg, ins);
 		}
 		else
-		{
-			ps_ins_rotate(src);
-			ps_add_list(ins, 5);
-		}
+			ps_ra(src, ins);
 	}
 	return (m2);
 }

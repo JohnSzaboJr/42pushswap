@@ -18,7 +18,7 @@ void    ps_pmb2(t_list_num **list, t_list_num **blist, t_list_num **ins)
 {    
     int m;
 
-    while (ps_size(*list) >= 10)
+    while (ps_size(*list) >= 5)
     {
         m = ps_push_med2(list, blist, ins);
         while (ps_num(*blist, ps_size(*blist) - 1) < m)

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_split_sort.c                                    :+:      :+:    :+:   */
+/*   ps_fsort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,19 +14,32 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void     ps_split_sort(t_list_num **ins, t_list_num **list)
+void     ps_fsort(t_list_num **list, t_list_num **blist, t_list_num **ins)
 {
-	t_list_num *blist;
+	int a;
+	int b;
+	int s;
+	int l;
 
-	blist = NULL;
-	ps_push_med(list, &blist, ins, 0);
-	if (ps_size(blist) > 100)
-		ps_transsplit(list, &blist, ins);
-	ps_pmb(list, &blist, ins);
-	if (ps_size(blist) > 200)
+	ps_rotate_into_place(blist, 0, ps_largest_num(*blist), ins);
+	ps_pa(list, blist, ins);
+	while (*blist)
 	{
-		ps_endsplit(list, &blist, ins);
-		ps_pmb2(list, &blist, ins);
+		l = ps_largest_num(*blist);
+		s = ps_num(*blist, ps_smallest(*blist));
+		a = ps_distance1(*list, *blist);
+		b = ps_distance2(*list, *blist);
+		if (a <= b)
+		{
+			ps_rotate_into_place(blist, 0, l, ins);
+			ps_rotate_into_place2(list, 0, l + 1, ins);
+		}
+		else
+		{
+			ps_rotate_into_place(blist, 0, s, ins);
+			ps_rotate_into_place2(list, ps_size(*list) - 1, s - 1, ins);
+		}
+		ps_pa(list, blist, ins);
 	}
-	ps_fsort(list, &blist, ins);
+	ps_rotate_into_place2(list, 0, 1, ins);
 }

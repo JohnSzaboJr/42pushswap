@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_split_sort.c                                    :+:      :+:    :+:   */
+/*   ps_rotate_into_place2.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,19 +14,20 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void     ps_split_sort(t_list_num **ins, t_list_num **list)
+void	ps_rotate_into_place2
+	(t_list_num **list, int end, int last, t_list_num **ins)
 {
-	t_list_num *blist;
+	int			pos;
 
-	blist = NULL;
-	ps_push_med(list, &blist, ins, 0);
-	if (ps_size(blist) > 100)
-		ps_transsplit(list, &blist, ins);
-	ps_pmb(list, &blist, ins);
-	if (ps_size(blist) > 200)
-	{
-		ps_endsplit(list, &blist, ins);
-		ps_pmb2(list, &blist, ins);
-	}
-	ps_fsort(list, &blist, ins);
+	pos = ps_position(*list, last);
+	if (pos == ps_size(*list))
+		return ;
+	if (pos < end && (end - pos) < (ps_size(*list) / 2))
+		ps_rrotate_n2(list, end - pos, ins);
+	else if (pos < end && (end - pos) >= (ps_size(*list) / 2))
+		ps_rotate_n2(list, ps_size(*list) - (end - pos), ins);
+	else if (pos > end && (pos - end) < (ps_size(*list) / 2))
+		ps_rotate_n2(list, pos - end, ins);
+	else if (pos > end && (pos - end) >= (ps_size(*list) / 2))
+		ps_rrotate_n2(list, ps_size(*list) - (pos - end), ins);
 }
