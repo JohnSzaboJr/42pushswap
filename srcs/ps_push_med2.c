@@ -13,8 +13,6 @@
 #include <unistd.h>
 #include "../checker.h"
 #include "../libft/libft.h"
-//
-#include <stdio.h>
 
 int ps_push_med2(t_list_num **src, t_list_num **trg, t_list_num **ins)
 {
