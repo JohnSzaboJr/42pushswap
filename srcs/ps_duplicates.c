@@ -14,10 +14,11 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int	ps_duplicates(t_list_num * list, int num)
+int	ps_duplicates(t_list_num *list, int num)
 {
 	list = list->next;
-	while (list) {
+	while (list)
+	{
 		if (list->num == num)
 			return (1);
 		list = list->next;

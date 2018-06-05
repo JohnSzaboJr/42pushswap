@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void     ps_endsplit(t_list_num **list, t_list_num **blist, t_list_num **ins)
+void	ps_endsplit(t_list_num **list, t_list_num **blist, t_list_num **ins)
 {
 	int m;
 	int m2;

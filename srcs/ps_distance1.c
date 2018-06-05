@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int      ps_distance1(t_list_num *list, t_list_num *blist)
+int	ps_distance1(t_list_num *list, t_list_num *blist)
 {
 	int p1;
 	int p2;

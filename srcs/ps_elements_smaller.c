@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int     ps_elements_smaller(t_list_num *list, int n)
+int	ps_elements_smaller(t_list_num *list, int n)
 {
 	while (list)
 	{

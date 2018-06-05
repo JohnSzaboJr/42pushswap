@@ -16,12 +16,13 @@
 
 int	ps_free(t_list_num **list)
 {
-    t_list_num *tmp;
+	t_list_num *tmp;
+
 	while (*list)
-    {
-        tmp = *list;
-        free(*list);
-        *list = tmp->next;
-    }
-    return (1);
+	{
+		tmp = *list;
+		free(*list);
+		*list = tmp->next;
+	}
+	return (1);
 }
