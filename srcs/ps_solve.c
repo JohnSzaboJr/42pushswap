@@ -16,23 +16,36 @@
 //
 #include <stdio.h>
 
+int ps_null(t_list_num *list)
+{
+	int i;
+
+	i = 0;
+	while (list)
+	{
+		if (list->num == 12)
+			i++;
+		list = list->next;
+	}
+	return (i);
+}
+
 int	ps_solve(int argc, char **argv, t_list_num **blist)
 {
     t_list_num *list;
-    t_list_num *list2;
     t_list_num *ins;
 
     list = NULL;
-    list2 = NULL;
     ins = NULL;
     make_list(argc, argv, &list);
-    make_list(argc, argv, &list2);
-    ps_relative_sort(&ins, &list2);
-    ps_select_sort(&ins, &list2, blist);
-    if (ps_size(list) > 20)
+    if (ps_size(list) <= 20)
     {
-        ins = NULL;
-        ps_convert_order(&list, list2);
+        ps_relative_sort(&ins, &list);
+        ps_select_sort(&ins, &list, blist);
+    }
+    else
+    {
+        ps_normalize(&list);
         ps_split_sort(&ins, &list);
     }
     ps_convert_ins(&ins);

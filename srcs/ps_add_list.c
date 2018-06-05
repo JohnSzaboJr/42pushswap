@@ -16,12 +16,12 @@
 
 int	ps_add_list(t_list_num **list, int num)
 {
-    t_list_num *tmp;
+	t_list_num *tmp;
 
-    if (!(tmp = (t_list_num *)malloc(sizeof(*tmp))))
-        return (throw_error());
-    tmp->num = num;
-    tmp->next = *list;
-    *list = tmp;
-    return (1);
+	if (!(tmp = (t_list_num *)malloc(sizeof(*tmp))))
+		return (throw_error());
+	tmp->num = num;
+	tmp->next = *list;
+	*list = tmp;
+	return (1);
 }

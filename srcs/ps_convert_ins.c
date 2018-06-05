@@ -16,43 +16,27 @@
 
 int	ps_convert_ins(t_list_num **ins)
 {
-    t_list_num *tmp;
+	t_list_num	*tmp;
+	int			a;
+	int			b;
 
-    tmp = *ins;
-    while (tmp && tmp->next)
-    {
-        if ((tmp->num == 1 && tmp->next->num == 2) ||
-            (tmp->num == 2 && tmp->next->num == 1))
-            {
-            tmp->num = 9;
-            tmp->next->num = 12;
-            }
-        else if ((tmp->num == 5 && tmp->next->num == 6) ||
-            (tmp->num == 6 && tmp->next->num == 5))
-            {
-            tmp->num = 10;
-            tmp->next->num = 12;
-            }
-        else if ((tmp->num == 7 && tmp->next->num == 8) ||
-            (tmp->num == 8 && tmp->next->num == 7))
-            {
-            tmp->num = 11;
-            tmp->next->num = 12;
-            }
-        else if ((tmp->num == 3 && tmp->next->num == 4) ||
-            (tmp->num == 4 && tmp->next->num == 3) ||
-            (tmp->num == 5 && tmp->next->num == 7) ||
-            (tmp->num == 7 && tmp->next->num == 5) ||
-            (tmp->num == 6 && tmp->next->num == 8) ||
-            (tmp->num == 8 && tmp->next->num == 6) ||
-            (tmp->num == 10 && tmp->next->num == 11) ||
-            (tmp->num == 11 && tmp->next->num == 10))
-            {
-            tmp->num = 12;
-            tmp->next->num = 12;
-            }
-    tmp = tmp->next;
-    }
-    ps_reverse_list(ins);
-    return (1);
+	tmp = *ins;
+	while (tmp && tmp->next)
+	{
+		a = tmp->num;
+		b = tmp->next->num;
+		if ((a == 1 && b == 2) || (a == 2 && b == 1))
+			ps_overwrite(&tmp, 9, 12);
+		else if ((a == 5 && b == 6) || (a == 6 && b == 5))
+			ps_overwrite(&tmp, 10, 12);
+		else if ((a == 7 && b == 8) || (a == 8 && b == 7))
+			ps_overwrite(&tmp, 11, 12);
+		else if ((a == 3 && b == 4) || (a == 4 && b == 3) ||
+		(a == 5 && b == 7) || (a == 7 && b == 5) || (a == 6 && b == 8) ||
+		(a == 8 && b == 6) || (a == 10 && b == 11) || (a == 11 && b == 10))
+			ps_overwrite(&tmp, 12, 12);
+		tmp = tmp->next;
+	}
+	ps_reverse_list(ins);
+	return (1);
 }

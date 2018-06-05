@@ -18,5 +18,5 @@ int	ps_check_input(int argc, char **argv)
 {
 	return (ft_avany(argv, argc, ft_hasnondigits) ||
 			ft_avany(argv, argc, ps_not_int_size)) ?
-			(throw_error()) : (1);
+	(throw_error()) : (1);
 }

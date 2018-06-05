@@ -17,24 +17,24 @@
 
 int	ps_check_sort(t_list_num *list, int n)
 {
-    int i;
+	int i;
 
-    i = 1;
-    while (list->next)
-    {
-        if (list->num > list->next->num)
-        {
-            ft_putstr("KO\n");
-            return (0);
-        }
-        list = list->next;
-        i++;
-    }
-    if (i != n)
-    {
-        ft_putstr("KO\n");
-        return (0);
-    }
-    ft_putstr("OK\n");
-    return (0);
+	i = 1;
+	while (list->next)
+	{
+		if (list->num > list->next->num)
+		{
+			ft_putstr("KO\n");
+			return (0);
+		}
+		list = list->next;
+		i++;
+	}
+	if (i != n)
+	{
+		ft_putstr("KO\n");
+		return (0);
+	}
+	ft_putstr("OK\n");
+	return (0);
 }

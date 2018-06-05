@@ -47,19 +47,8 @@ int							ps_relative_sort(t_list_num **ins, t_list_num **list);
 void						ps_print_ins(t_list_num *ins);
 int							ps_convert_ins(t_list_num **ins);
 int							ps_reverse_list(t_list_num **ins);
-int							ps_bubble_sort(t_list_num **ins, t_list_num **list);
-int							ps_copy_list(t_list_num **list2, t_list_num *list);
-int							ps_convert_order(t_list_num **dstlist, t_list_num *srclist);
-int							ps_quick_sort(t_list_num **ins, t_list_num **list);
-int							ps_proximity(t_list_num *list, t_list_num *blist);
 int							ps_num(t_list_num *list, int pos);
-void						ps_get_start(t_list_num **list, int start);
-int							ps_count_error(t_list_num *list, int num, int end_num);
-int							ps_find_pivot(t_list_num *list, int start, int end, int *p);
-int							ps_left(t_list_num *list, int p, int start);
 int							ps_median(t_list_num *list, int start, int end);
-void						ps_get_first(t_list_num *list, int start, int *first, int p);
-void						ps_get_last(t_list_num *list, int *last, int p);
 int							ps_position(t_list_num *list, int n);
 void						ps_split_sort(t_list_num **ins, t_list_num **list);
 void						ps_rrotate_n(t_list_num **list, int	n, t_list_num **ins);
@@ -89,9 +78,11 @@ void						ps_transback(t_list_num **list, t_list_num **blist, t_list_num **ins);
 int							ps_sortinb(t_list_num **list, t_list_num **blist, t_list_num **ins, int l);
 void						ps_resplit(t_list_num **list, t_list_num **blist, t_list_num **ins, int m);
 void						ps_resplit2(t_list_num **list, t_list_num **blist, t_list_num **ins, int m);
-int							ps_null(t_list_num *list);
 int							ps_distance1(t_list_num *list, t_list_num *blist);
 int							ps_distance2(t_list_num *list, t_list_num *blist);
+void						ps_overwrite(t_list_num **ins, int a, int b);
+void						ps_normalize(t_list_num **list);
+
 void						ps_print_list(t_list_num *list);
 
 #endif
