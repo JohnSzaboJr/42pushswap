@@ -20,8 +20,7 @@ void     ps_split_sort(t_list_num **ins, t_list_num **list)
 
 	blist = NULL;
 	ps_push_med(list, &blist, ins, 0);
-	if (ps_size(blist) > 100)
-		ps_transsplit(list, &blist, ins);
+	ps_transsplit(list, &blist, ins);
 	ps_pmb(list, &blist, ins);
 	if (ps_size(blist) > 200)
 	{
