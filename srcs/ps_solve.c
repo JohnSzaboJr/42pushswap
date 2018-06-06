@@ -49,9 +49,9 @@ int	ps_solve(int argc, char **argv, t_list_num **blist)
         ps_split_sort(&ins, &list);
     }
     ps_convert_ins(&ins);
-    // ps_print_ins(ins);
-    printf("original size: %d\n", ps_size(ins));
-    printf("optimized size: %d\n", ps_size(ins) - ps_null(ins));
+    ps_print_ins(ins);
+    // printf("original size: %d\n", ps_size(ins));
+    // printf("optimized size: %d\n", ps_size(ins) - ps_null(ins));
 	// ps_print_list(list);
 	return (1);
 }
