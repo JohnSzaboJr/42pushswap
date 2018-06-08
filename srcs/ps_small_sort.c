@@ -13,6 +13,8 @@
 #include <unistd.h>
 #include "../checker.h"
 #include "../libft/libft.h"
+//
+#include <stdio.h>
 
 void    ps_small_sort(t_list_num **ins, t_list_num **list)
 {
@@ -20,9 +22,9 @@ void    ps_small_sort(t_list_num **ins, t_list_num **list)
 	{
 		if ((*list) && (*list)->next && (*list)->num - 1 == (*list)->next->num)
 			ps_sa(list, ins);
-		if (ps_smallest(*list) == ps_size(*list) - 1)
+		if (ps_smallest(*list) == ps_size(*list) - 1 || ps_position(*list, ps_largest_num(*list)) == ps_size(*list) - 2)
 			ps_rra(list, ins);
-		if (ps_smallest(*list) == ps_size(*list) - 2)
-			ps_ra(list, ins); 
+		else if (ps_smallest(*list) == ps_size(*list) - 2)
+			ps_ra(list, ins);
 	}
 }
