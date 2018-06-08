@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_make_list.c                                     :+:      :+:    :+:   */
+/*   ps_g_l.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,22 +14,28 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int      make_list(int argc, char **argv, t_list_num **list)
+void	ps_g_l(t_list_num **list, t_list_num **blist, t_list_num **ins, int a)
 {
-  t_list_num *tmp;
+	int	l;
+	int	c;
 
-  tmp = NULL;
-  argc--;
-  while (argc >= 0)
-    {
-      if (!(tmp = (t_list_num *)malloc(sizeof(*tmp))))
-	        return (throw_error());
-      tmp->num = ft_atoi(argv[argc]);
-      tmp->next = *list;
-      if (ps_duplicates(tmp, tmp->num))
-	return (throw_error());
-      *list = tmp;
-      argc--;
-    }
-  return (1);
+	c = 0;
+	l = ps_largest_num(*blist);
+	ps_rotate_into_place2(list, 0, l + 1, ins);
+	if (ps_distance3(*blist, l - 1) != -1 &&
+	ps_distance3(*blist, l - 1) <= a)
+	{
+		c = 1;
+		ps_rotate_into_place(blist, 0, l - 1, ins);
+		ps_pa(list, blist, ins);
+	}
+	ps_rotate_into_place(blist, 0, l, ins);
+	ps_pa(list, blist, ins);
+	if (c)
+	{
+		ps_sa(list, ins);
+		if (*blist && (*blist)->next &&
+		(*blist)->num + 1 == (*blist)->next->num)
+			ps_sb(blist, ins);
+	}
 }

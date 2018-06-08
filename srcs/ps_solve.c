@@ -30,23 +30,21 @@ int ps_null(t_list_num *list)
 	return (i);
 }
 
-int	ps_solve(int argc, char **argv, t_list_num **blist)
+int	ps_solve(t_list_num **list, t_list_num **blist)
 {
-    t_list_num *list;
     t_list_num *ins;
 
-    list = NULL;
     ins = NULL;
-    make_list(argc, argv, &list);
-    if (ps_size(list) <= 20)
+    if (ps_size(*list) <= 20)
     {
-        ps_relative_sort(&ins, &list);
-        ps_select_sort(&ins, &list, blist);
+        ps_small_sort(&ins, list);
+        ps_relative_sort(&ins, list);
+        ps_select_sort(&ins, list, blist);
     }
     else
     {
-        ps_normalize(&list);
-        ps_split_sort(&ins, &list);
+        ps_normalize(list);
+        ps_split_sort(&ins, list);
     }
     ps_convert_ins(&ins);
     ps_print_ins(ins);

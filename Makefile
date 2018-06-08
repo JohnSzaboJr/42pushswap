@@ -17,7 +17,7 @@ FLAGS = -Wall -Werror -Wextra
 SRCS = srcs/
 MAINS = checker push_swap
 SOURCES = ps_add_list ps_check_input ps_check_sort ps_convert_ins \
-ps_distance1 ps_distance2 ps_duplicates ps_elements_larger \
+ps_distance1 ps_distance2 ps_distance3 ps_duplicates ps_elements_larger \
 ps_elements_smaller ps_endsplit ps_free ps_fsort ps_ins_push \
 ps_ins_rotate ps_ins_rrotate ps_ins_switch ps_instruction \
 ps_largest_num ps_make_list ps_median ps_no_input ps_normalize \
@@ -26,8 +26,9 @@ ps_pmb2 ps_position ps_print_ins ps_print_list ps_push_med \
 ps_push_med2 ps_ra ps_rb ps_read_do ps_relative_sort ps_resplit \
 ps_resplit2 ps_reverse_list ps_rotate_into_place ps_rotate_into_place2 \
 ps_rotate_n ps_rotate_n2 ps_rra ps_rrb ps_rrotate_n ps_rrotate_n2 ps_sa \
-ps_selec_sort ps_size ps_smallest ps_solve ps_sortinb \
-ps_split_sort ps_throw_error ps_transback ps_transsplit
+ps_sb ps_selec_sort ps_size ps_smallest ps_solve ps_sortinb \
+ps_split_sort ps_throw_error ps_transback ps_transsplit ps_g_l ps_g_s \
+ps_get_input ps_avany ps_small_sort
 C_FILES = $(patsubst %,$(SRCS)%.c, $(SOURCES)) $(patsubst %,%.c, $(MAINS))
 O_FILES = $(patsubst %,%.o, $(SOURCES)) $(patsubst %,%.o, $(MAINS))
 SHARED_O = $(patsubst %,objects/%.o, $(SOURCES))

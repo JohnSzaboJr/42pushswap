@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_make_list.c                                     :+:      :+:    :+:   */
+/*   ps_sb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/23 14:31:23 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/23 14:35:38 by jszabo           ###   ########.fr       */
+/*   Created: 2018/06/04 14:37:17 by jszabo            #+#    #+#             */
+/*   Updated: 2018/06/04 14:37:18 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,8 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int      make_list(int argc, char **argv, t_list_num **list)
+void    ps_sb(t_list_num **blist, t_list_num **ins)
 {
-  t_list_num *tmp;
-
-  tmp = NULL;
-  argc--;
-  while (argc >= 0)
-    {
-      if (!(tmp = (t_list_num *)malloc(sizeof(*tmp))))
-	        return (throw_error());
-      tmp->num = ft_atoi(argv[argc]);
-      tmp->next = *list;
-      if (ps_duplicates(tmp, tmp->num))
-	return (throw_error());
-      *list = tmp;
-      argc--;
-    }
-  return (1);
+	ps_ins_switch(blist);
+	ps_add_list(ins, 2);
 }

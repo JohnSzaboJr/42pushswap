@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ps_get_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,28 +11,28 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "checker.h"
-#include "./libft/libft.h"
+#include "../checker.h"
+#include "../libft/libft.h"
 
-int	main(int argc, char **argv)
+int	ps_get_input(int argc, char **argv, t_list_num **list)
 {
-	t_list_num	*list;
-	t_list_num	*blist;
-	char		*line;
-	int			size;
+	int		i;
+	int		l;
+	char	**input;
 
-	line = NULL;
-	list = NULL;
-	blist = NULL;
-	if (argc > 1 && !ps_get_input(argc, argv, &list))
-		return (-1);
-	size = ps_size(list);
-	if (argc > 1 && !ps_read_do(&line, &list, &blist))
-		return (-1);
-	if (argc > 1)	
-		ps_check_sort(list, size);
-	ps_free(&list);
-	return (0);
-	// do a bonus where it prints the list?
-	// do a bonus where it prints number of ins?
+	i = argc - 1;
+	l = 0;
+	while (i)
+	{
+		if (!(input = ft_strsplit(argv[i], ' ')))
+			return (throw_error());
+		while(input[l])
+			l++;
+		if (!ps_check_input(l, input) || !make_list(l, input, list))
+			return (0);
+		free(input);
+		l = 0;
+		i--;
+	}
+	return (1);
 }

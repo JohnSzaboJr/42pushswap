@@ -16,13 +16,14 @@
 
 int	main(int argc, char **argv)
 {
+	t_list_num	*list;
 	t_list_num	*blist;
 
+	list = NULL;
 	blist = NULL;
-	if (argc > 1 && (!ps_check_input(argc, argv) ||
-			!ps_solve(argc, argv, &blist)))
+	if (argc > 1 && (!ps_get_input(argc, argv, &list) ||
+		!ps_solve(&list, &blist)))
 		return (-1);
-	//ps_check_sort(list, argc - 1);
-	//ps_free(&list);
+	ps_free(&list);
 	return (0);
 }

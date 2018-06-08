@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_make_list.c                                     :+:      :+:    :+:   */
+/*   ps_avany.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/23 14:31:23 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/23 14:35:38 by jszabo           ###   ########.fr       */
+/*   Created: 2017/09/17 12:45:14 by jszabo            #+#    #+#             */
+/*   Updated: 2018/03/19 15:21:22 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,16 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int      make_list(int argc, char **argv, t_list_num **list)
+int		ps_avany(char **argv, int argc, int (*f)(char*))
 {
-  t_list_num *tmp;
+	int i;
 
-  tmp = NULL;
-  argc--;
-  while (argc >= 0)
-    {
-      if (!(tmp = (t_list_num *)malloc(sizeof(*tmp))))
-	        return (throw_error());
-      tmp->num = ft_atoi(argv[argc]);
-      tmp->next = *list;
-      if (ps_duplicates(tmp, tmp->num))
-	return (throw_error());
-      *list = tmp;
-      argc--;
-    }
-  return (1);
+	i = 0;
+	while (i < argc)
+	{
+		if (f(argv[i]))
+			return (1);
+		i++;
+	}
+	return (0);
 }

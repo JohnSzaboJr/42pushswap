@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_make_list.c                                     :+:      :+:    :+:   */
+/*   ps_small_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,22 +14,15 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int      make_list(int argc, char **argv, t_list_num **list)
+void    ps_small_sort(t_list_num **ins, t_list_num **list)
 {
-  t_list_num *tmp;
-
-  tmp = NULL;
-  argc--;
-  while (argc >= 0)
-    {
-      if (!(tmp = (t_list_num *)malloc(sizeof(*tmp))))
-	        return (throw_error());
-      tmp->num = ft_atoi(argv[argc]);
-      tmp->next = *list;
-      if (ps_duplicates(tmp, tmp->num))
-	return (throw_error());
-      *list = tmp;
-      argc--;
-    }
-  return (1);
+	while (ps_not_sort(*list) && ps_size(*list) <= 3)
+	{
+		if ((*list) && (*list)->next && (*list)->num - 1 == (*list)->next->num)
+			ps_sa(list, ins);
+		if (ps_smallest(*list) == ps_size(*list) - 1)
+			ps_rra(list, ins);
+		if (ps_smallest(*list) == ps_size(*list) - 2)
+			ps_ra(list, ins); 
+	}
 }

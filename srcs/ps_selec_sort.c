@@ -22,6 +22,11 @@ int	ps_select_sort(t_list_num **ins, t_list_num **list, t_list_num **blist)
 	while (*list && ps_not_sort(*list))
 	{
 		size = ps_size(*list);
+		if (size <= 3)
+		{
+			ps_small_sort(ins, list);
+			break ;
+		}
 		pos = ps_smallest(*list);
 		if (pos == 1)
 		{
