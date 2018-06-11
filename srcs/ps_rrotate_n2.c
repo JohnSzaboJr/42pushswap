@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void	ps_rrotate_n2(t_list_num **list, int	n, t_list_num **ins)
+void	ps_rrotate_n2(t_list_num **list, int n, t_list_num **ins)
 {
 	while (n)
 	{

@@ -14,7 +14,8 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void    ps_resplit(t_list_num **list, t_list_num **blist, t_list_num **ins, int m)
+void	ps_resplit(t_list_num **list, t_list_num **blist,
+	t_list_num **ins, int m)
 {
 	int m2;
 	int m3;

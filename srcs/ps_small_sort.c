@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void    ps_small_sort(t_list_num **ins, t_list_num **list)
+void	ps_small_sort(t_list_num **ins, t_list_num **list)
 {
 	while (ps_not_sort(*list) && ps_size(*list) <= 3)
 	{

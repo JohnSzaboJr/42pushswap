@@ -14,12 +14,12 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void    ps_print_list(t_list_num *list)
+void	ps_print_list(t_list_num *list)
 {
-    while (list)
-    {
-        ft_printf("%d ", list->num);
-        list = list->next;
-    }
-    ft_printf("\n");
+	while (list)
+	{
+		ft_printf("%d ", list->num);
+		list = list->next;
+	}
+	ft_printf("\n");
 }

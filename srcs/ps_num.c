@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int ps_num(t_list_num *list, int pos)
+int	ps_num(t_list_num *list, int pos)
 {
 	int i;
 

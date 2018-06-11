@@ -23,7 +23,8 @@ int	ft_hasnondigits(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]) && !(!i && str[i] == '-' && ft_isdigit(str[i + 1])))
+		if (!ft_isdigit(str[i]) && !(!i && str[i] == '-' &&
+		ft_isdigit(str[i + 1])))
 			return (1);
 		i++;
 	}

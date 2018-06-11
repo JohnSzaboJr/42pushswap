@@ -16,18 +16,18 @@
 
 int	ps_relative_sort(t_list_num **ins, t_list_num **list)
 {
-t_list_num *lasta;
-int size;
-int pos;
+	t_list_num	*lasta;
+	int			size;
+	int			pos;
 
-lasta = *list;
-size = ps_size(*list);
-pos = ps_smallest(*list);
-while (lasta->next)
-	lasta = lasta->next;
-if (ps_not_sort(*list) == 1 && lasta->num < (*list)->num)
+	lasta = *list;
+	size = ps_size(*list);
+	pos = ps_smallest(*list);
+	while (lasta->next)
+		lasta = lasta->next;
+	if (ps_not_sort(*list) == 1 && lasta->num < (*list)->num)
 	{
-	while (pos <= size / 2 && pos > 0)
+		while (pos <= size / 2 && pos > 0)
 		{
 			ps_ins_rotate(list);
 			ps_add_list(ins, 5);

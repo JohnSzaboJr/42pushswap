@@ -18,7 +18,7 @@ void	ps_transback(t_list_num **list, t_list_num **blist, t_list_num **ins)
 {
 	int	m;
 	int	m2;
-	
+
 	m = ps_median(*blist, 0, ps_size(*blist) - 1);
 	m2 = (m + ps_largest_num(*blist)) / 2;
 	while ((*blist)->num >= m)

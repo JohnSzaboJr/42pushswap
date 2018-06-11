@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void    ps_sa(t_list_num **list, t_list_num **ins)
+void	ps_sa(t_list_num **list, t_list_num **ins)
 {
 	ps_ins_switch(list);
 	ps_add_list(ins, 1);

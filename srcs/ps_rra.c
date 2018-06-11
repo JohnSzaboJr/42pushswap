@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void    ps_rra(t_list_num **list, t_list_num **ins)
+void	ps_rra(t_list_num **list, t_list_num **ins)
 {
 	ps_ins_rrotate(list);
 	ps_add_list(ins, 7);

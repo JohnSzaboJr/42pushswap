@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int ps_median(t_list_num *list, int start, int end)
+int	ps_median(t_list_num *list, int start, int end)
 {
 	int	i;
 	int	sum;

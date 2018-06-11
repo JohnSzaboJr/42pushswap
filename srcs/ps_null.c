@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_null.c                                       :+:      :+:    :+:   */
+/*   ps_null.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int ps_null(t_list_num *list)
+int	ps_null(t_list_num *list)
 {
 	int i;
 

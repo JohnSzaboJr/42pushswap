@@ -16,5 +16,5 @@
 
 int	ps_not_int_size(char *str)
 {
-	return !(ft_atoll(str) >= -2147483648 && ft_atoll(str) <= 2147483647);
+	return (!(ft_atoll(str) >= -2147483648 && ft_atoll(str) <= 2147483647));
 }

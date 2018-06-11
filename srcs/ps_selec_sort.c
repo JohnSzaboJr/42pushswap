@@ -32,11 +32,11 @@ void	ps_select_sort(t_list_num **ins, t_list_num **list, t_list_num **blist)
 			ps_rotate_into_place2(list, 0,
 			ps_num(*list, ps_smallest(*list)), ins);
 		if (ps_not_sort(*list))
+		{
+			ps_relative_sort(ins, list);
 			ps_pb(blist, list, ins);
+		}
 	}
 	while (*blist)
-	{
-		ps_ins_push(list, blist);
-		ps_add_list(ins, 3);	
-	}
+		ps_pa(list, blist, ins);
 }

@@ -16,22 +16,22 @@
 
 int	ps_reverse_list(t_list_num **list)
 {
-    t_list_num *next;
-    t_list_num *tmp;
-    t_list_num *node;
+	t_list_num *next;
+	t_list_num *tmp;
+	t_list_num *node;
 
-    next = NULL;
-    tmp = NULL;
-    node = *list;
-    while (node && node->next)
-        node = node->next;
-    while (*list)
-    {
-        next = (*list)->next;
-        (*list)->next = tmp;
-        tmp = *list;
-        *list = next;
-    }
-    *list = node;
-    return (1);
+	next = NULL;
+	tmp = NULL;
+	node = *list;
+	while (node && node->next)
+		node = node->next;
+	while (*list)
+	{
+		next = (*list)->next;
+		(*list)->next = tmp;
+		tmp = *list;
+		*list = next;
+	}
+	*list = node;
+	return (1);
 }

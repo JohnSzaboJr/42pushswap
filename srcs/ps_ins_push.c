@@ -18,11 +18,11 @@ void	ps_ins_push(t_list_num **dstlist, t_list_num **srclist)
 {
 	t_list_num *node;
 
-      	node = *srclist;
-       	if (*srclist)
-	  {
-	    *srclist = (*srclist)->next;
-	    node->next = *dstlist;
-	    *dstlist = node;
-	  }
+	node = *srclist;
+	if (*srclist)
+	{
+		*srclist = (*srclist)->next;
+		node->next = *dstlist;
+		*dstlist = node;
+	}
 }

@@ -26,10 +26,16 @@ int	ps_get_input(int argc, char **argv, t_list_num **list)
 	{
 		if (!(input = ft_strsplit(argv[i], ' ')))
 			return (throw_error());
-		while(input[l])
+		while (input[l])
 			l++;
 		if (!ps_check_input(l, input) || !make_list(l, input, list))
 			return (0);
+		l = 0;
+		while (input[l])
+		{
+			free(input[l]);
+			l++;
+		}
 		free(input);
 		l = 0;
 		i--;

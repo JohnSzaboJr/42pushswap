@@ -16,13 +16,13 @@
 
 void	ps_print_ins(t_list_num *ins)
 {
-    const char *instructions[] = {"sa\n", "sb\n", "pa\n", "pb\n", "ra\n",
-                                "rb\n", "rra\n", "rrb\n", "ss\n", "rr\n",
-                                "rrr\n", ""};
-								
-    while (ins)
-    {
-        ft_putstr(instructions[ins->num - 1]);
-        ins = ins->next;
-    }
+	const char *instructions[] = {"sa\n", "sb\n", "pa\n", "pb\n", "ra\n",
+								"rb\n", "rra\n", "rrb\n", "ss\n", "rr\n",
+								"rrr\n", ""};
+
+	while (ins)
+	{
+		ft_putstr(instructions[ins->num - 1]);
+		ins = ins->next;
+	}
 }

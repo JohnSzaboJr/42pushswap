@@ -23,5 +23,5 @@ int		ps_distance3(t_list_num *blist, int n)
 	p = ps_position(blist, n);
 	if (p == s)
 		return (-1);
-	return (p < s / 2) ? (p) : (s - p); 
+	return (p < s / 2) ? (p) : (s - p);
 }

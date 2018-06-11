@@ -14,8 +14,8 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void    ps_overwrite(t_list_num **ins, int a, int b)
+void	ps_overwrite(t_list_num **ins, int a, int b)
 {
-    (*ins)->num = a;
-    (*ins)->next->num = b;
+	(*ins)->num = a;
+	(*ins)->next->num = b;
 }

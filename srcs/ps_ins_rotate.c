@@ -14,27 +14,27 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void     ps_ins_rotate(t_list_num **list)
+void	ps_ins_rotate(t_list_num **list)
 {
-  	t_list_num *tmplist;
+	t_list_num *tmplist;
 	t_list_num *node;
-	
+
 	tmplist = NULL;
 	node = NULL;
-    if (*list && (*list)->next)
-    {
-        node = *list;
-        *list = (*list)->next;
-        tmplist = *list;
-        while (tmplist->next)
-            tmplist = tmplist->next;
-        tmplist->next = node;
-        node->next = NULL;
-    }
+	if (*list && (*list)->next)
+	{
+		node = *list;
+		*list = (*list)->next;
+		tmplist = *list;
+		while (tmplist->next)
+			tmplist = tmplist->next;
+		tmplist->next = node;
+		node->next = NULL;
+	}
 }
 
-void    ps_ins_rotate_both(t_list_num **alist, t_list_num **blist)
+void	ps_ins_rotate_both(t_list_num **alist, t_list_num **blist)
 {
-    ps_ins_rotate(alist);
-    ps_ins_rotate(blist);
+	ps_ins_rotate(alist);
+	ps_ins_rotate(blist);
 }

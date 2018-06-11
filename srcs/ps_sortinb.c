@@ -27,7 +27,7 @@ int	ps_sortinb(t_list_num **list, t_list_num **blist, t_list_num **ins,
 		if ((*list)->num < m)
 			ps_pb(blist, list, ins);
 		else
-			ps_ra(list, ins);            
+			ps_ra(list, ins);
 		if ((*blist)->num >= m2)
 			ps_rb(blist, ins);
 	}

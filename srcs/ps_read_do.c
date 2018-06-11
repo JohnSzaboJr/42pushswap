@@ -16,15 +16,15 @@
 
 int	ps_read_do(char **line, t_list_num **list, t_list_num **blist)
 {
-    int i;
-    
-    i = 0;
-    while (get_next_line(0, line) && (*line)[0])
-    {
-        if (!(ps_instruction(list, blist, *line)))
-            return (0);
-        free(*line);
-        i++;
-    }
-    return (1);
+	int i;
+
+	i = 0;
+	while (get_next_line(0, line) && (*line)[0])
+	{
+		if (!(ps_instruction(list, blist, *line)))
+			return (0);
+		free(*line);
+		i++;
+	}
+	return (1);
 }

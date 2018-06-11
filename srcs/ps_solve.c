@@ -14,11 +14,12 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int ps_solve(t_list_num **list, t_list_num **blist)
+int	ps_solve(t_list_num **list, t_list_num **blist)
 {
-	t_list_num  *ins;
+	t_list_num	*ins;
 
 	ins = NULL;
+	ps_normalize(list);
 	if (ps_size(*list) <= 20)
 	{
 		ps_small_sort(&ins, list);
@@ -26,11 +27,9 @@ int ps_solve(t_list_num **list, t_list_num **blist)
 		ps_select_sort(&ins, list, blist);
 	}
 	else
-	{
-		ps_normalize(list);
 		ps_split_sort(&ins, list);
-	}
 	ps_convert_ins(&ins);
 	ps_print_ins(ins);
+	ps_free(&ins);
 	return (1);
 }

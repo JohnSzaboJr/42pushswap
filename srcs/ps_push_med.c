@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int ps_push_med(t_list_num **src, t_list_num **trg, t_list_num **ins, int s)
+int	ps_push_med(t_list_num **src, t_list_num **trg, t_list_num **ins, int s)
 {
 	int m;
 	int m2;

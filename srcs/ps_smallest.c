@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int ps_smallest(t_list_num *list)
+int	ps_smallest(t_list_num *list)
 {
 	int smallest;
 	int pos;

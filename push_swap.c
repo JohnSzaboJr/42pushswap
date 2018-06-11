@@ -6,10 +6,10 @@
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:46:14 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/29 13:32:49 by jszabo           ###   ########.fr       */
+/*   Updated: 2018/06/11 14:56:06 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-	
+
 #include <unistd.h>
 #include "checker.h"
 #include "./libft/libft.h"

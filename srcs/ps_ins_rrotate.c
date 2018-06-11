@@ -16,17 +16,17 @@
 
 void	ps_ins_rrotate(t_list_num **list)
 {
-    t_list_num *tmplist;
-    t_list_num *node;
+	t_list_num *tmplist;
+	t_list_num *node;
 
-    tmplist = NULL;
-    node = NULL;
-    if (*list && (*list)->next && (*list)->next->next)
+	tmplist = NULL;
+	node = NULL;
+	if (*list && (*list)->next && (*list)->next->next)
 	{
-        node = *list;
-        while ((*list)->next->next)
+		node = *list;
+		while ((*list)->next->next)
 			*list = (*list)->next;
-        tmplist = (*list)->next;
+		tmplist = (*list)->next;
 		(*list)->next = NULL;
 		*list = tmplist;
 		(*list)->next = node;
@@ -37,6 +37,6 @@ void	ps_ins_rrotate(t_list_num **list)
 
 void	ps_ins_rrotate_both(t_list_num **alist, t_list_num **blist)
 {
-    ps_ins_rrotate(alist);
-    ps_ins_rrotate(blist);
+	ps_ins_rrotate(alist);
+	ps_ins_rrotate(blist);
 }

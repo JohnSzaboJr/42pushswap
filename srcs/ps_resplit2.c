@@ -14,13 +14,14 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void    ps_resplit2(t_list_num **list, t_list_num **blist, t_list_num **ins, int m)
+void	ps_resplit2(t_list_num **list, t_list_num **blist,
+	t_list_num **ins, int m)
 {
 	int m2;
 	int m3;
-    int l;
+	int l;
 
-    l = ps_largest_num(*list);
+	l = ps_largest_num(*list);
 	m2 = (m + ps_num(*blist, ps_smallest(*blist))) / 2;
 	while ((*blist)->num < m)
 	{

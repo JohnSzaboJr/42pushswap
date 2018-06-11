@@ -14,22 +14,22 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int      make_list(int argc, char **argv, t_list_num **list)
+int	make_list(int argc, char **argv, t_list_num **list)
 {
-  t_list_num *tmp;
+	t_list_num *tmp;
 
-  tmp = NULL;
-  argc--;
-  while (argc >= 0)
-    {
-      if (!(tmp = (t_list_num *)malloc(sizeof(*tmp))))
-	        return (throw_error());
-      tmp->num = ft_atoi(argv[argc]);
-      tmp->next = *list;
-      if (ps_duplicates(tmp, tmp->num))
-	return (throw_error());
-      *list = tmp;
-      argc--;
-    }
-  return (1);
+	tmp = NULL;
+	argc--;
+	while (argc >= 0)
+	{
+		if (!(tmp = (t_list_num *)malloc(sizeof(*tmp))))
+			return (throw_error());
+		tmp->num = ft_atoi(argv[argc]);
+		tmp->next = *list;
+		if (ps_duplicates(tmp, tmp->num))
+			return (throw_error());
+		*list = tmp;
+		argc--;
+	}
+	return (1);
 }

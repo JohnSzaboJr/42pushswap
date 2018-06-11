@@ -16,14 +16,14 @@
 
 int	ps_not_sort(t_list_num *list)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (list && list->next)
-    {
-        if (list->num > list->next->num)
-            i++;
-        list = list->next;
-    }
-    return (i);
+	i = 0;
+	while (list && list->next)
+	{
+		if (list->num > list->next->num)
+			i++;
+		list = list->next;
+	}
+	return (i);
 }
