@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_solve.c                                         :+:      :+:    :+:   */
+/*   ft_pf_handle_print.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/23 14:31:23 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/23 14:35:38 by jszabo           ###   ########.fr       */
+/*   Created: 2018/03/15 14:28:47 by jszabo            #+#    #+#             */
+/*   Updated: 2018/03/18 14:11:00 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../checker.h"
-#include "../libft/libft.h"
+#include "../libft.h"
+#include "../ft_printf.h"
 
-int ps_solve(t_list_num **list, t_list_num **blist)
+int		ft_pf_format_print_num
+	(char **new, char **str, t_print *features, int *ret)
 {
-	t_list_num  *ins;
+	char *spaces;
 
-	ins = NULL;
-	if (ps_size(*list) <= 20)
-	{
-		ps_small_sort(&ins, list);
-		ps_relative_sort(&ins, list);
-		ps_select_sort(&ins, list, blist);
-	}
-	else
-	{
-		ps_normalize(list);
-		ps_split_sort(&ins, list);
-	}
-	ps_convert_ins(&ins);
-	ps_print_ins(ins);
+	if (!(ft_pf_num_mod(new, str, &spaces, features)))
+		return (0);
+	ft_putstr(*new);
+	*ret = *ret + ft_strlen(*new);
+	free(*new);
+	free(*str);
 	return (1);
 }

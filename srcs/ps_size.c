@@ -16,7 +16,7 @@
 
 int	ps_size(t_list_num *list)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (list)

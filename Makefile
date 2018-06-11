@@ -45,7 +45,7 @@ objects: $(LIBFT)
 	@echo '\033[0;32m'*** project objects created ***'\033[0m'
 
 $(CHECKER): objects
-	@gcc -o $(CHECKER) $(SHARED_O) ./objects/checker.o ./libft/libft.a
+	@gcc -o $(CHECKER) ./libft/libft.a $(SHARED_O) ./objects/checker.o
 	@echo '\033[0;32m'*** checker compiled ***'\033[0m'
 
 $(PUSH_SWAP): $(OBJ)
@@ -54,11 +54,12 @@ $(PUSH_SWAP): $(OBJ)
 
 clean: 
 	@/bin/rm -rf objects/
+	@make -C libft/ clean
 	@echo '\033[0;32m'*** project objects removed ***'\033[0m'
 
 fclean: clean
 	@/bin/rm -f $(CHECKER) $(PUSH_SWAP)
-	@echo '\033[0;32m'*** project executables removed ***'\033[0m'
 	@make -C libft/ fclean
+	@echo '\033[0;32m'*** project executables removed ***'\033[0m'
 
 re: fclean all

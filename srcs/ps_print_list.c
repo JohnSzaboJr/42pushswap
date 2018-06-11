@@ -13,15 +13,13 @@
 #include <unistd.h>
 #include "../checker.h"
 #include "../libft/libft.h"
-//
-#include <stdio.h>
 
 void    ps_print_list(t_list_num *list)
 {
     while (list)
     {
-        printf("%d ", list->num);
+        ft_printf("%d ", list->num);
         list = list->next;
     }
-    printf("\n");
+    ft_printf("\n");
 }

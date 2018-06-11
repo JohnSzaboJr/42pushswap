@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_solve.c                                         :+:      :+:    :+:   */
+/*   ft_pf_store_b.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/23 14:31:23 by jszabo            #+#    #+#             */
-/*   Updated: 2018/03/23 14:35:38 by jszabo           ###   ########.fr       */
+/*   Created: 2018/03/14 14:32:46 by jszabo            #+#    #+#             */
+/*   Updated: 2018/03/14 14:34:00 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../checker.h"
-#include "../libft/libft.h"
+#include "../libft.h"
+#include "../ft_printf.h"
 
-int ps_solve(t_list_num **list, t_list_num **blist)
+int		ft_pf_store_type(char **str, char *type)
 {
-	t_list_num  *ins;
-
-	ins = NULL;
-	if (ps_size(*list) <= 20)
-	{
-		ps_small_sort(&ins, list);
-		ps_relative_sort(&ins, list);
-		ps_select_sort(&ins, list, blist);
-	}
-	else
-	{
-		ps_normalize(list);
-		ps_split_sort(&ins, list);
-	}
-	ps_convert_ins(&ins);
-	ps_print_ins(ins);
+	*type = (*str)[0];
+	*str = ft_memmove(*str, *str + 1, ft_strlen(*str));
 	return (1);
 }

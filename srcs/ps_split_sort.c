@@ -14,9 +14,9 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-void     ps_split_sort(t_list_num **ins, t_list_num **list)
+void	ps_split_sort(t_list_num **ins, t_list_num **list)
 {
-	t_list_num *blist;
+	t_list_num	*blist;
 
 	blist = NULL;
 	ps_push_med(list, &blist, ins, 0);

@@ -14,26 +14,26 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int	ps_smallest(t_list_num *list)
+int ps_smallest(t_list_num *list)
 {
-    int smallest;
-    int pos;
-    int sm_pos;
+	int smallest;
+	int pos;
+	int sm_pos;
 
-    pos = 0;
-    sm_pos = 0;
-    if (!list)
-        return (-1);
-    smallest = list->num;
-    while (list)
-    {
-        if (list->num <= smallest)
-        {
-            smallest = list->num;
-            sm_pos = pos;
-        }
-        list = list->next;
-        pos++;
-    }
-    return (sm_pos);
+	pos = 0;
+	sm_pos = 0;
+	if (!list)
+		return (-1);
+	smallest = list->num;
+	while (list)
+	{
+		if (list->num <= smallest)
+		{
+			smallest = list->num;
+			sm_pos = pos;
+		}
+		list = list->next;
+		pos++;
+	}
+	return (sm_pos);
 }

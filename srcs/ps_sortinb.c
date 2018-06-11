@@ -14,10 +14,11 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int     ps_sortinb(t_list_num **list, t_list_num **blist, t_list_num **ins, int l)
+int	ps_sortinb(t_list_num **list, t_list_num **blist, t_list_num **ins,
+	int l)
 {
-	int m;
-	int m2;
+	int	m;
+	int	m2;
 
 	m = (l - 1 + ps_num(*list, ps_smallest(*list))) / 2;
 	m2 = (m + l - 1) / 2;

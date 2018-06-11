@@ -119,5 +119,6 @@ int					ft_avany(char **argv, int argc, int (*f)(char*));
 int					ft_hasnondigits(char *str);
 long long			ft_atoll(const char *str);
 int					get_next_line(const int fd, char **line);
+int					ft_printf(char *format, ...);
 
 #endif

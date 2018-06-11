@@ -14,10 +14,9 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int	ps_select_sort(t_list_num **ins, t_list_num **list, t_list_num **blist)
+void	ps_select_sort(t_list_num **ins, t_list_num **list, t_list_num **blist)
 {
-	int pos;
-	int size;
+	int	size;
 
 	while (*list && ps_not_sort(*list))
 	{
@@ -27,36 +26,17 @@ int	ps_select_sort(t_list_num **ins, t_list_num **list, t_list_num **blist)
 			ps_small_sort(ins, list);
 			break ;
 		}
-		pos = ps_smallest(*list);
-		if (pos == 1)
-		{
-			ps_ins_switch(list);
-			ps_add_list(ins, 1);
-			pos = 0;
-		}
-		while (pos <= size / 2 && pos > 0)
-		{
-			ps_ins_rotate(list);
-			ps_add_list(ins, 5);
-			pos--;
-		}
-		while (pos > size / 2 && pos < size)
-		{
-			ps_ins_rrotate(list);
-			ps_add_list(ins, 7);
-			pos++;
-		}
+		if (ps_smallest(*list) == 1)
+			ps_sa(list, ins);
+		else
+			ps_rotate_into_place2(list, 0,
+			ps_num(*list, ps_smallest(*list)), ins);
 		if (ps_not_sort(*list))
-		{
-			ps_ins_push(blist, list);
-			ps_add_list(ins, 4);
-			ps_relative_sort(ins, list);
-		}
+			ps_pb(blist, list, ins);
 	}
 	while (*blist)
 	{
 		ps_ins_push(list, blist);
 		ps_add_list(ins, 3);	
 	}
-	return (1);
 }

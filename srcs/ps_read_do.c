@@ -26,7 +26,5 @@ int	ps_read_do(char **line, t_list_num **list, t_list_num **blist)
         free(*line);
         i++;
     }
-    if (ps_no_input(i))
-        return (0);
     return (1);
 }
