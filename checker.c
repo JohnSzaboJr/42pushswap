@@ -6,7 +6,7 @@
 /*   By: jszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:46:14 by jszabo            #+#    #+#             */
-/*   Updated: 2018/06/11 15:00:13 by jszabo           ###   ########.fr       */
+/*   Updated: 2018/06/12 13:36:56 by jszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ int	main(int argc, char **argv)
 	size = ps_size(list);
 	if (argc > 1 && list && !ps_read_do(&line, &list, &blist))
 		return (-1);
-	if (argc > 1 && list)
-		ps_check_sort(list, size);
+	if (argc > 1 && (list || blist))
+		ps_check_sort(list, blist);
+	ps_free(&blist);
 	ps_free(&list);
 	return (0);
 }

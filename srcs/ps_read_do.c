@@ -22,7 +22,10 @@ int	ps_read_do(char **line, t_list_num **list, t_list_num **blist)
 	while (get_next_line(0, line) && (*line)[0])
 	{
 		if (!(ps_instruction(list, blist, *line)))
+		{
+			free(*line);
 			return (0);
+		}
 		free(*line);
 		i++;
 	}

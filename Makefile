@@ -10,6 +10,7 @@
 #                                                                              #
 #******************************************************************************#
 
+NAME = $(CHECKER) $(PUSH_SWAP)
 CHECKER = checker
 PUSH_SWAP = push_swap
 LIBFT = libft/libft.a
@@ -28,17 +29,17 @@ ps_resplit2 ps_reverse_list ps_rotate_into_place ps_rotate_into_place2 \
 ps_rotate_n ps_rotate_n2 ps_rra ps_rrb ps_rrotate_n ps_rrotate_n2 ps_sa \
 ps_sb ps_selec_sort ps_size ps_smallest ps_solve ps_sortinb \
 ps_split_sort ps_throw_error ps_transback ps_transsplit ps_g_l ps_g_s \
-ps_get_input ps_avany ps_small_sort
+ps_get_input ps_avany ps_small_sort ps_free_tab
 C_FILES = $(patsubst %,$(SRCS)%.c, $(SOURCES)) $(patsubst %,%.c, $(MAINS))
 O_FILES = $(patsubst %,%.o, $(SOURCES)) $(patsubst %,%.o, $(MAINS))
 SHARED_O = $(patsubst %,objects/%.o, $(SOURCES))
 
-all: $(CHECKER) $(PUSH_SWAP)
+all: $(NAME)
 
 $(LIBFT):
 	@make -C libft/ all
 
-objects: $(LIBFT) $(C_FILES)
+objects: $(LIBFT) $(C_FILES) checker.h
 	@gcc $(FLAGS) -c $(C_FILES)
 	@mkdir objects/ 2> /dev/null || true
 	@mv $(O_FILES) objects/

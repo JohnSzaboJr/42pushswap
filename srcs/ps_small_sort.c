@@ -16,7 +16,10 @@
 
 void	ps_small_sort(t_list_num **ins, t_list_num **list)
 {
-	while (ps_not_sort(*list) && ps_size(*list) <= 3)
+	if (ps_not_sort(*list) && ps_size(*list) == 2 &&
+	(*list)->num > (*list)->next->num)
+		ps_sa(list, ins);
+	while (ps_not_sort(*list) && ps_size(*list) == 3)
 	{
 		if ((*list) && (*list)->next && (*list)->num - 1 == (*list)->next->num)
 			ps_sa(list, ins);

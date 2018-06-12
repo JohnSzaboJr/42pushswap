@@ -27,7 +27,7 @@ int							ps_instruction(t_list_num **list,
 int							ps_duplicates(t_list_num *list, int num);
 int							make_list(int argc, char **argv, t_list_num **list);
 int							ps_no_input(int i);
-int							ps_check_sort(t_list_num *list, int n);
+int							ps_check_sort(t_list_num *list, t_list_num *blist);
 int							ps_free(t_list_num **list);
 int							ps_read_do(char **line, t_list_num **list,
 	t_list_num **blist);
@@ -120,5 +120,6 @@ int							ps_avany(char **argv, int argc, int (*f)(char*));
 void						ps_small_sort(t_list_num **ins, t_list_num **list);
 int							ps_null(t_list_num *list);
 void						ps_print_list(t_list_num *list);
+void						ps_free_tab(char **input);
 
 #endif

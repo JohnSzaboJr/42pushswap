@@ -15,11 +15,13 @@
 #include "../libft/libft.h"
 #include <stdio.h>
 
-int	ps_check_sort(t_list_num *list, int n)
+int	ps_check_sort(t_list_num *list, t_list_num *blist)
 {
-	int i;
-
-	i = 1;
+	if (blist)
+	{
+		ft_putstr("KO\n");
+		return (0);
+	}
 	while (list->next)
 	{
 		if (list->num > list->next->num)
@@ -28,12 +30,6 @@ int	ps_check_sort(t_list_num *list, int n)
 			return (0);
 		}
 		list = list->next;
-		i++;
-	}
-	if (i != n)
-	{
-		ft_putstr("KO\n");
-		return (0);
 	}
 	ft_putstr("OK\n");
 	return (0);

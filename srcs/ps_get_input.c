@@ -32,18 +32,11 @@ int	ps_get_input(int argc, char **argv, t_list_num **list)
 			l++;
 		if (!ps_check_input(l, input) || !make_list(l, input, list))
 			e = 1;
-		l = 0;
-		while (input[l])
-		{
-			free(input[l]);
-			l++;
-		}
-		free(input);
+		ps_free_tab(input);
 		if (e)
-		{
 			ps_free(list);
+		if (e)
 			return (0);
-		}
 		l = 0;
 		i--;
 	}
