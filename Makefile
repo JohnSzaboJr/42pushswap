@@ -38,8 +38,8 @@ all: $(CHECKER) $(PUSH_SWAP)
 $(LIBFT):
 	@make -C libft/ all
 
-objects: $(LIBFT)
-	@gcc $(FLAGS) -c $(C_FILES) $(MAINS_C)
+objects: $(LIBFT) $(C_FILES)
+	@gcc $(FLAGS) -c $(C_FILES)
 	@mkdir objects/ 2> /dev/null || true
 	@mv $(O_FILES) objects/
 	@echo '\033[0;32m'*** project objects created ***'\033[0m'
@@ -48,7 +48,7 @@ $(CHECKER): objects
 	@gcc -o $(CHECKER) ./libft/libft.a $(SHARED_O) ./objects/checker.o
 	@echo '\033[0;32m'*** checker compiled ***'\033[0m'
 
-$(PUSH_SWAP): $(OBJ)
+$(PUSH_SWAP): objects
 	@gcc -o $(PUSH_SWAP) $(SHARED_O) ./objects/push_swap.o ./libft/libft.a
 	@echo '\033[0;32m'*** push_swap compiled ***'\033[0m'
 

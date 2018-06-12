@@ -27,9 +27,9 @@ int	main(int argc, char **argv)
 	if (argc > 1 && !ps_get_input(argc, argv, &list))
 		return (-1);
 	size = ps_size(list);
-	if (argc > 1 && !ps_read_do(&line, &list, &blist))
+	if (argc > 1 && list && !ps_read_do(&line, &list, &blist))
 		return (-1);
-	if (argc > 1)
+	if (argc > 1 && list)
 		ps_check_sort(list, size);
 	ps_free(&list);
 	return (0);

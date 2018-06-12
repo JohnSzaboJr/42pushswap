@@ -42,7 +42,7 @@ void						ps_ins_rotate_both(t_list_num **alist,
 void						ps_ins_rrotate(t_list_num **list);
 void						ps_ins_rrotate_both(t_list_num **alist,
 	t_list_num **blist);
-int							ps_solve(t_list_num **list, t_list_num **blist);
+void						ps_solve(t_list_num **list, t_list_num **blist);
 void						ps_select_sort(t_list_num **ins,
 	t_list_num **list, t_list_num **blist);
 int							ps_smallest(t_list_num *list);

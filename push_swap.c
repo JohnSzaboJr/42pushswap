@@ -21,9 +21,10 @@ int	main(int argc, char **argv)
 
 	list = NULL;
 	blist = NULL;
-	if (argc > 1 && (!ps_get_input(argc, argv, &list) ||
-		!ps_solve(&list, &blist)))
+	if (argc > 1 && (!ps_get_input(argc, argv, &list)))
 		return (-1);
+	if (list)
+		ps_solve(&list, &blist);
 	ps_free(&list);
 	return (0);
 }

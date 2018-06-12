@@ -14,7 +14,7 @@
 #include "../checker.h"
 #include "../libft/libft.h"
 
-int	ps_solve(t_list_num **list, t_list_num **blist)
+void	ps_solve(t_list_num **list, t_list_num **blist)
 {
 	t_list_num	*ins;
 
@@ -31,5 +31,4 @@ int	ps_solve(t_list_num **list, t_list_num **blist)
 	ps_convert_ins(&ins);
 	ps_print_ins(ins);
 	ps_free(&ins);
-	return (1);
 }
