@@ -19,19 +19,19 @@ int	main(int argc, char **argv)
 	t_list_num	*list;
 	t_list_num	*blist;
 	char		*line;
-	int			size;
+	int			e;
 
 	line = NULL;
 	list = NULL;
 	blist = NULL;
+	e = 0;
 	if (argc > 1 && !ps_get_input(argc, argv, &list))
 		return (-1);
-	size = ps_size(list);
 	if (argc > 1 && list && !ps_read_do(&line, &list, &blist))
-		return (-1);
-	if (argc > 1 && (list || blist))
+		e = 1;
+	if (!e && argc > 1 && (list || blist))
 		ps_check_sort(list, blist);
 	ps_free(&blist);
 	ps_free(&list);
-	return (0);
+	return (e) ? (1) : (0);
 }

@@ -29,5 +29,6 @@ int	ps_read_do(char **line, t_list_num **list, t_list_num **blist)
 		free(*line);
 		i++;
 	}
+	free(*line);
 	return (1);
 }
